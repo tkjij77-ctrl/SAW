@@ -1,0 +1,25 @@
+:root {
+  color-scheme: dark;
+  --bg: #080c0b;
+  --panel: #0f1712;
+  --card: #141d17;
+  --card-2: #0b120e;
+  --border: #28352d;
+  --border-strong: #3d5144;
+  --text: #f1f7f2;
+  --muted: #8b9b90;
+  --muted-2: #65756a;
+  --green: #58d36b;
+  --green-dark: #258f3c;
+  --cyan: #45cddd;
+  --amber: #e4b95a;
+  --red: #f05d67;
+  --blue: #659dff;
+  --radius-sm: 5px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 14px 40px rgb(0 0 0 / 32%);
+  --topbar: 66px;
+  --sidebar: 248px;
+  font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+}

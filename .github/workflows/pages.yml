@@ -1,0 +1,54 @@
+name: Deploy SAW Frontend v2
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend-v2/package-lock.json
+      - uses: actions/configure-pages@v5
+      - name: Install frontend dependencies
+        working-directory: frontend-v2
+        run: npm ci
+      - name: Verify, typecheck and build frontend v2
+        working-directory: frontend-v2
+        env:
+          VITE_SUPABASE_URL: https://seiqkubajnwpzdunyovm.supabase.co
+          VITE_SUPABASE_ANON_KEY: sb_publishable_hfyjzwVEpdYY2aa0sQweqg__-sXcl4H
+          VITE_SITE_URL: https://tkjij77-ctrl.github.io/SAW/
+          VITE_BUILD_SHA: ${{ github.sha }}
+        run: npm run build:ci
+      - name: Add static OAuth and diagnostics files
+        run: |
+          touch frontend-v2/dist/.nojekyll
+          printf '{"sha":"%s","builtAt":"%s"}\n' "$GITHUB_SHA" "$(date -u +%FT%TZ)" > frontend-v2/dist/version.json
+          cp setup-check.html frontend-v2/dist/setup-check.html
+          mkdir -p frontend-v2/dist/.well-known
+          cp .well-known/oauth-cimd frontend-v2/dist/.well-known/oauth-cimd
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend-v2/dist
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

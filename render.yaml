@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: mc-control-cloud
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: HF_CLIENT_ID
+        sync: false
+      - key: HF_CLIENT_SECRET
+        sync: false
+      - key: HF_REDIRECT_URI
+        value: https://mc-control-cloud.onrender.com/auth/callback
+      - key: HF_SCOPES
+        value: openid profile read-repos
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: SESSION_TTL_SECONDS
+        value: "28800"

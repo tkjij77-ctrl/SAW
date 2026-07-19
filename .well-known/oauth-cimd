@@ -1,0 +1,10 @@
+{
+  "client_id": "https://tkjij77-ctrl.github.io/SAW/.well-known/oauth-cimd",
+  "client_name": "MC Control Cloud",
+  "redirect_uris": [
+    "https://tkjij77-ctrl.github.io/SAW/"
+  ],
+  "token_endpoint_auth_method": "none",
+  "client_uri": "https://tkjij77-ctrl.github.io/SAW/",
+  "logo_uri": "https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-sm-dark.svg"
+}

@@ -1,0 +1,83 @@
+name: Validate and Deploy Supabase Edge Functions
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+    paths:
+      - "supabase/functions/**"
+      - "supabase/config.toml"
+      - "minecraft-agent/**"
+      - "provisioning-template/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-edge-functions
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Test Minecraft Agent handoff and syntax
+        run: |
+          python -m unittest discover -v -s minecraft-agent -p "test_*.py"
+          python -m py_compile minecraft-agent/app.py provisioning-template/app.py
+          cmp minecraft-agent/app.py provisioning-template/app.py
+          cmp minecraft-agent/requirements.txt provisioning-template/requirements.txt
+      - name: Check Edge Function formatting
+        run: deno fmt --check supabase/functions
+      - name: Type-check Edge Functions
+        run: |
+          for file in supabase/functions/*/index.ts; do
+            echo "Checking $file"
+            deno check "$file"
+          done
+
+  deploy-functions:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Validate deployment secrets
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+        run: |
+          test -n "$SUPABASE_ACCESS_TOKEN" || (echo "Missing SUPABASE_ACCESS_TOKEN" && exit 1)
+          test -n "$SUPABASE_PROJECT_ID" || (echo "Missing SUPABASE_PROJECT_ID" && exit 1)
+      - name: Deploy all SAW functions
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+        run: |
+          deploy_function() {
+            fn="$1"
+            for attempt in 1 2 3; do
+              echo "Deploying $fn (attempt $attempt/3)"
+              if supabase functions deploy "$fn" --project-ref "$SUPABASE_PROJECT_ID"; then
+                echo "Successfully deployed $fn"
+                return 0
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                delay=$((attempt * 15))
+                echo "Transient deployment failure for $fn; retrying in ${delay}s..."
+                sleep "$delay"
+              fi
+            done
+            echo "Failed to deploy $fn after 3 attempts"
+            return 1
+          }
+
+          for fn in link-huggingface unlink-huggingface agent-command provision-server provision-status sync-servers upgrade-agent delete-server delete-account; do
+            deploy_function "$fn"
+          done

@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#070b12">
+  <meta name="description" content="SAW MC Hosting — Minecraft Java & Bedrock server hosting panel">
+  <title>SAW MC Hosting — Minecraft Server Panel</title>
+  <style>
+    :root{--bg:#070b12;--panel:#0e1522;--card:#121c2c;--line:#243147;--muted:#8290a7;--text:#eef4ff;--green:#55d187;--green2:#20b66b;--red:#ff6577;--amber:#f6bd57;--blue:#6aa8ff;--shadow:0 18px 55px rgba(0,0,0,.32);--r:16px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at 85% -10%,rgba(32,182,107,.13),transparent 28%),radial-gradient(circle at 5% 30%,rgba(106,168,255,.08),transparent 25%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}
+    button,input{font:inherit} button{cursor:pointer}.hidden{display:none!important}.ltr{direction:ltr}.muted{color:var(--muted)}
+    .shell{min-height:100vh}.topbar{height:70px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(7,11,18,.78);backdrop-filter:blur(18px);position:sticky;top:0;z-index:20}.brand{display:flex;gap:12px;align-items:center;font-weight:900}.brand-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,var(--green),#168a55);box-shadow:0 8px 24px rgba(32,182,107,.25)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.7px;margin-top:2px}.userbox{display:flex;align-items:center;gap:10px}.avatar{width:36px;height:36px;border-radius:50%;background:#1c293c;object-fit:cover;border:1px solid var(--line)}
+    .btn{border:1px solid var(--line);background:#151f2f;color:var(--text);border-radius:11px;padding:10px 15px;font-weight:750;transition:.18s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-1px);border-color:#3d506e;background:#19263a}.btn.primary{background:linear-gradient(135deg,var(--green2),#138b51);border-color:transparent;box-shadow:0 8px 24px rgba(32,182,107,.18)}.btn.danger{background:rgba(255,101,119,.09);border-color:rgba(255,101,119,.3);color:#ff8795}.btn.ghost{background:transparent}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+    .login{min-height:100vh;display:grid;place-items:center;padding:24px}.login-card{width:min(960px,100%);display:grid;grid-template-columns:1.05fr .95fr;background:rgba(14,21,34,.88);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}.login-copy{padding:56px}.eyebrow{color:var(--green);font-weight:850;font-size:12px;letter-spacing:1.6px}.login h1{font-size:46px;line-height:1.12;margin:14px 0}.login p{color:var(--muted);line-height:1.9}.login-art{min-height:520px;background:linear-gradient(145deg,rgba(32,182,107,.22),rgba(6,11,18,.3)),repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.025) 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(255,255,255,.025) 32px);display:grid;place-items:center;position:relative}.cube{font-size:110px;filter:drop-shadow(0 25px 40px rgba(0,0,0,.45));animation:float 4s ease-in-out infinite}@keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}.feature-row{display:flex;gap:13px;margin:25px 0}.feature{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:12px;color:#b8c3d5}
+    .layout{display:grid;grid-template-columns:250px 1fr;min-height:calc(100vh - 70px)}.sidebar{border-left:1px solid var(--line);padding:22px 14px;background:rgba(9,14,23,.68)}.nav-title{color:#65728a;font-size:10px;font-weight:900;letter-spacing:1.8px;padding:8px 12px}.nav{width:100%;border:0;color:var(--muted);background:transparent;padding:12px 14px;border-radius:11px;text-align:right;font-weight:700;margin:3px 0}.nav:hover,.nav.active{background:rgba(85,209,135,.09);color:var(--green)}.content{padding:28px;max-width:1480px;width:100%;margin:auto}.head{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:24px}.head h1{margin:0 0 6px;font-size:30px}.head p{margin:0;color:var(--muted)}
+    .spaces{display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:16px}.space-card{background:linear-gradient(145deg,rgba(18,28,44,.95),rgba(12,19,31,.95));border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s;position:relative;overflow:hidden}.space-card:hover{transform:translateY(-3px);border-color:#3d506e;box-shadow:var(--shadow)}.space-card:before{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:var(--green);filter:blur(70px);opacity:.07;top:-40px;left:-30px}.space-top{display:flex;justify-content:space-between;gap:10px}.space-icon{width:44px;height:44px;border-radius:12px;background:#1b293d;display:grid;place-items:center;font-size:22px}.badge{font-size:11px;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:5px 9px;height:max-content}.badge.agent{color:var(--green);border-color:rgba(85,209,135,.25);background:rgba(85,209,135,.07)}.space-card h3{direction:ltr;text-align:right;margin:17px 0 6px;font-size:16px}.space-meta{color:var(--muted);font-size:12px;margin-bottom:18px}.space-actions{display:flex;gap:8px}.space-actions .btn{flex:1;padding:9px}
+    .empty{border:1px dashed var(--line);border-radius:var(--r);padding:55px;text-align:center;color:var(--muted);grid-column:1/-1}.loading{padding:50px;text-align:center;color:var(--muted)}.spinner{width:26px;height:26px;border:3px solid #223047;border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
+    .server-header{display:flex;justify-content:space-between;gap:15px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:16px}.server-name{direction:ltr;text-align:right}.server-name h2{margin:0 0 5px}.live{display:flex;gap:8px;align-items:center;color:var(--green);font-size:13px}.dot{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}.controls{display:flex;gap:8px;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:16px}.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.stat label{display:block;color:var(--muted);font-size:11px;font-weight:800}.stat strong{display:block;font-size:23px;margin-top:8px}.stat small{color:#607087}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}.tabs{display:flex;border-bottom:1px solid var(--line);padding:0 12px;overflow:auto}.tab{background:transparent;border:0;color:var(--muted);padding:15px 16px;font-weight:750;border-bottom:2px solid transparent;white-space:nowrap}.tab.active{color:var(--green);border-bottom-color:var(--green)}.tab-page{padding:16px}.console{direction:ltr;text-align:left;background:#05080d;border:1px solid #1a2638;border-radius:12px;padding:16px;height:390px;overflow:auto;color:#9be8ac;white-space:pre-wrap;font:12.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.command{display:flex;gap:8px;margin-top:10px;direction:ltr}.command input{flex:1;background:#0b111c;border:1px solid var(--line);color:var(--text);border-radius:11px;padding:12px;outline:none}.command input:focus{border-color:var(--green)}
+    .notice{padding:13px 15px;border:1px solid rgba(246,189,87,.25);background:rgba(246,189,87,.07);color:#f8d18b;border-radius:12px;margin-bottom:15px;font-size:13px}.demo-banner{background:#503e13;color:#ffe4a1;padding:9px 18px;text-align:center;font-size:12px}.toast-wrap{position:fixed;left:20px;bottom:20px;z-index:50;display:grid;gap:8px}.toast{background:#172235;border:1px solid var(--line);padding:12px 16px;border-radius:11px;box-shadow:var(--shadow);animation:toastin .2s ease-out;max-width:380px}.toast.bad{border-color:rgba(255,101,119,.45)}@keyframes toastin{from{transform:translateY(10px);opacity:0}}
+    @media(max-width:1050px){.spaces{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.login-card{grid-template-columns:1fr}.login-art{display:none}.login-copy{padding:35px 25px}.login h1{font-size:36px}.layout{grid-template-columns:1fr}.sidebar{display:flex;overflow:auto;border-left:0;border-bottom:1px solid var(--line);padding:8px}.nav-title{display:none}.nav{white-space:nowrap;width:auto}.content{padding:17px}.spaces{grid-template-columns:1fr}.topbar{padding:0 14px}.server-header,.head{align-items:flex-start;flex-direction:column}.stats{grid-template-columns:1fr 1fr}.user-name{display:none}}
+  
+    /* Enhanced console and controls */
+    .controls .action[disabled]{filter:grayscale(.55);opacity:.42}.live.connecting{color:var(--amber)}.live.offline{color:var(--red)}.live.connected{color:var(--green)}
+    .console-toolbar{display:flex;gap:8px;align-items:center;padding:10px 12px;background:#0b121e;border-bottom:1px solid var(--line);flex-wrap:wrap}.console-toolbar input{background:#080d15;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 10px;min-width:180px;flex:1;outline:none}.console-toolbar input:focus{border-color:var(--green)}
+    .tool-btn{border:1px solid var(--line);background:#121c2b;color:var(--muted);border-radius:8px;padding:7px 10px;font-size:11px;font-weight:800}.tool-btn:hover,.tool-btn.active{color:var(--green);border-color:rgba(85,209,135,.35);background:rgba(85,209,135,.07)}.tool-btn.error.active{color:#ff8795;border-color:rgba(255,101,119,.35);background:rgba(255,101,119,.08)}.tool-btn.warn.active{color:#f8d18b;border-color:rgba(246,189,87,.35)}
+    .console-shell{position:relative;padding:14px}.console{margin:0;height:390px}.console.nowrap{white-space:pre;overflow-x:auto}.log-line{display:block;min-height:20px}.log-info{color:#b7c6db}.log-warn{color:#f6c96f}.log-error{color:#ff7e8d}.log-join{color:#62e69a}.log-leave{color:#7f8ba0}.log-command{color:#6fb1ff}.log-system{color:#bf9cff}.log-match{background:rgba(246,189,87,.22);color:#fff;border-radius:2px}.new-logs{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);border:1px solid rgba(85,209,135,.35);background:#153326;color:#7ff0aa;border-radius:99px;padding:7px 13px;font-size:11px;font-weight:800;box-shadow:var(--shadow)}
+    .command-zone{padding:0 14px 14px}.quick-row{display:flex;gap:8px;margin-bottom:8px;align-items:center}.quick-row select{background:#0b111c;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px;min-width:190px}.command{margin-top:0}.command-status{font-size:11px;color:var(--muted);margin-top:7px;display:flex;justify-content:space-between}.kbd{border:1px solid var(--line);background:#121a28;border-radius:5px;padding:2px 5px}
+    .confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(5px);z-index:100;display:grid;place-items:center;padding:20px}.confirm-card{width:min(430px,100%);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.confirm-icon{width:48px;height:48px;border-radius:14px;background:rgba(255,101,119,.1);display:grid;place-items:center;font-size:23px}.confirm-card h3{margin:15px 0 7px}.confirm-card p{color:var(--muted);line-height:1.7;margin:0 0 20px}.confirm-actions{display:flex;gap:8px;justify-content:flex-start}.server-phase{font-size:10px;padding:4px 8px;border:1px solid currentColor;border-radius:99px;opacity:.85}
+    @media(max-width:760px){.console-toolbar{align-items:stretch}.console-toolbar input{width:100%;flex-basis:100%}.console-shell{padding:8px}.command-zone{padding:0 8px 8px}.quick-row{align-items:stretch;flex-direction:column}.quick-row select{width:100%}.command{position:sticky;bottom:0;background:var(--panel);padding-top:6px}.console{height:48vh}}
+
+    .auth-card{grid-template-columns:1fr 1fr}.auth-form{display:grid;gap:13px;margin-top:22px}.auth-form>div{display:grid;gap:7px}.auth-form label,.member-form label{font-size:12px;color:var(--muted);font-weight:800}.auth-form input,.member-form input,.member-form select{width:100%;background:#0a111c;border:1px solid var(--line);border-radius:11px;padding:12px;color:var(--text);outline:none}.auth-form input:focus,.member-form input:focus,.member-form select:focus{border-color:var(--green)}.auth-form .btn{margin-top:5px}.auth-switch{margin-top:17px;color:var(--muted);font-size:13px}.auth-switch button{border:0;background:transparent;color:var(--green);font-weight:900}.auth-art{display:grid;place-items:center;text-align:center;gap:12px;padding:30px}.auth-art span{color:#adbacd;line-height:1.7;max-width:280px}.members-grid{display:grid;grid-template-columns:360px 1fr;gap:16px}.member-form,.member-list-wrap{padding:20px}.member-form{display:grid;gap:11px}.member-form h3,.member-list-wrap h3{margin:0 0 7px}.member-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-bottom:1px solid var(--line)}.member-id{display:flex;align-items:center;gap:10px}.role-chip{font-size:10px;padding:4px 8px;border-radius:99px;border:1px solid var(--line);color:var(--green)}.danger-link{border:0;background:transparent;color:var(--red);font-weight:800}.hf-linked{background:rgba(85,209,135,.08)!important;color:var(--green)!important;border-color:rgba(85,209,135,.25)!important}@media(max-width:760px){.members-grid{grid-template-columns:1fr}.auth-card{grid-template-columns:1fr}}
+    .settings-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.settings-card{padding:20px;display:flex;flex-direction:column;gap:11px}.settings-card h3{margin:0 0 7px}.settings-card label{font-size:12px;color:var(--muted);font-weight:800}.settings-card input{background:#0a111c;border:1px solid var(--line);border-radius:11px;padding:12px;color:var(--text);outline:none}.settings-card input:focus{border-color:var(--green)}.settings-card input:disabled{opacity:.65}.audit-row{display:grid;grid-template-columns:150px 1fr 130px;gap:12px;padding:12px;border-bottom:1px solid var(--line);align-items:center}.audit-action{direction:ltr;text-align:right;color:var(--blue);font-family:ui-monospace,monospace;font-size:12px}@media(max-width:900px){.settings-cards{grid-template-columns:1fr}.audit-row{grid-template-columns:1fr;gap:4px}}
+    .server-tab-page{min-height:420px}.file-cloud-toolbar{display:flex;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--line)}.file-path{direction:ltr;margin-right:auto;color:var(--green);font:12px ui-monospace,monospace}.cloud-files{display:grid;grid-template-columns:280px 1fr;min-height:460px}.cloud-files>aside{border-left:1px solid var(--line);padding:12px}.cloud-files>aside h3{font-size:11px;color:var(--muted);margin:12px 7px 7px}.cloud-files>section{padding:14px}.cloud-file-list{display:grid;gap:3px}.cloud-file-item{border:0;background:transparent;color:var(--muted);padding:9px;border-radius:8px;text-align:right;display:flex;justify-content:space-between;gap:8px}.cloud-file-item:hover,.cloud-file-item.active{background:rgba(85,209,135,.08);color:var(--green)}.cloud-file-item.binary{opacity:.55}.file-editor-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.cloud-editor{width:100%;min-height:390px;resize:vertical;background:#05080d;color:#b7eec5;border:1px solid #1a2638;border-radius:11px;padding:14px;outline:none;font:12px/1.65 ui-monospace,monospace;direction:ltr;text-align:left}.cloud-editor:focus{border-color:var(--green)}.cloud-editor:disabled{opacity:.55}.simple-page{padding:22px}.player-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.player-card{background:var(--card);border:1px solid var(--line);padding:13px;border-radius:12px;display:flex;align-items:center;gap:10px}.info-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.info-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px}.info-item label{display:block;color:var(--muted);font-size:11px}.info-item strong{display:block;margin-top:6px;direction:ltr;text-align:right}@media(max-width:760px){.cloud-files{grid-template-columns:1fr}.cloud-files>aside{border-left:0;border-bottom:1px solid var(--line)}.player-grid,.info-list{grid-template-columns:1fr}}
+    .create-server-card{width:min(560px,100%);max-height:92vh;overflow:auto}.wizard-head{display:flex;align-items:flex-start;justify-content:space-between}.wizard-head h3{margin:7px 0 15px}.create-server-card select{width:100%;background:#0a111c;border:1px solid var(--line);border-radius:11px;padding:12px;color:var(--text)}.wizard-summary{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important}.wizard-summary span{padding:9px;border:1px solid var(--line);border-radius:9px;background:#0a111c;color:#b6c3d5;font-size:12px}.eula-check{display:flex!important;grid-template-columns:auto 1fr!important;align-items:center;gap:8px;color:var(--text)!important}.eula-check input{width:auto}.provision-card{text-align:center;width:min(520px,100%)}.provision-card .spinner{margin:auto}.progress-track{height:10px;background:#080d16;border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:18px}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green2),var(--green));transition:width .4s}.provision-percent{font-weight:900;color:var(--green);margin:8px}.provision-steps{display:grid;gap:7px;text-align:right;margin:16px 0}.provision-step{padding:9px;border-radius:9px;background:#0a111c;color:var(--muted);font-size:12px}.provision-step.active{color:var(--amber);border:1px solid rgba(246,189,87,.25)}.provision-step.done{color:var(--green)}.provision-step.failed{color:var(--red)}
+
+    /* ========================================================
+       SAW HOSTING — Professional hosting-panel visual system
+       ======================================================== */
+    :root{
+      --bg:#070b12;--panel:#0d1420;--card:#111a29;--card2:#0b121d;
+      --line:#202d41;--line2:#2c3d55;--muted:#8190a8;--text:#eef4ff;
+      --green:#35d07f;--green2:#17a85e;--blue:#659dff;--red:#ff6277;
+      --amber:#f4b94f;--shadow:0 16px 45px rgba(0,0,0,.28);--r:14px;
+    }
+    html{background:var(--bg)}
+    body{background:radial-gradient(circle at 82% -15%,rgba(53,208,127,.08),transparent 31%),var(--bg);letter-spacing:.01em}
+    .topbar{height:68px;padding:0 25px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(7,11,18,.9);box-shadow:0 5px 22px rgba(0,0,0,.16)}
+    .brand{font-size:15px;gap:11px}.brand-mark{width:39px;height:39px;border-radius:11px;font-size:19px;font-weight:1000;background:linear-gradient(145deg,#45dc8c,#168e52);box-shadow:0 8px 25px rgba(31,188,105,.24)}
+    .brand small{font-size:8.5px;letter-spacing:2.1px;color:#75839a}.userbox{gap:11px}.userbox>.btn{padding:9px 13px}.avatar{box-shadow:0 0 0 3px rgba(101,157,255,.08)}
+    .layout{grid-template-columns:246px minmax(0,1fr)}
+    .sidebar{padding:22px 13px;background:linear-gradient(180deg,rgba(9,15,25,.98),rgba(7,11,18,.98));border-left:1px solid rgba(255,255,255,.065);position:sticky;top:68px;height:calc(100vh - 68px)}
+    .nav-title{padding:8px 13px 15px;color:#536178;font-size:9px;letter-spacing:2.3px}.nav{display:grid;grid-template-columns:1fr;gap:3px;padding:11px 14px;margin:4px 0;border:1px solid transparent;transition:.2s}.nav b{font-size:13px}.nav small{font-size:9px;color:#5e6d84;font-weight:600;letter-spacing:.4px}.nav:hover{border-color:rgba(255,255,255,.06);background:#101927}.nav.active{border-color:rgba(53,208,127,.13);background:linear-gradient(90deg,rgba(53,208,127,.11),rgba(53,208,127,.035));box-shadow:inset -3px 0 var(--green)}.nav.active small{color:#64a77f}
+    .content{max-width:1500px;padding:30px 32px}.page-kicker{font-size:9px;color:var(--green);font-weight:900;letter-spacing:2.1px;margin-bottom:7px}.head{margin-bottom:22px}.head h1{font-size:27px;letter-spacing:-.4px}.head p{font-size:12.5px}.head .btn{min-height:40px}
+    .btn{border-radius:9px;padding:9px 15px;border-color:var(--line);background:#141e2d;font-size:12.5px;box-shadow:none}.btn:hover{border-color:#3a4b64;background:#192639}.btn.primary{background:linear-gradient(135deg,#22bc6b,#14864d);box-shadow:0 7px 20px rgba(30,177,99,.18)}.btn.primary:hover{box-shadow:0 10px 27px rgba(30,177,99,.25)}.btn.danger{background:rgba(255,98,119,.08)}
+    .spaces{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}.space-card{border-radius:13px;padding:18px;background:linear-gradient(145deg,#111b2a,#0c1420);box-shadow:0 8px 25px rgba(0,0,0,.16)}.space-card:hover{transform:translateY(-2px);border-color:#354860}.space-icon{width:41px;height:41px;border-radius:10px}.space-card h3{font-size:14.5px}.badge{font-size:9px;text-transform:uppercase;letter-spacing:.7px}
+    .server-header{border-radius:13px;padding:18px 20px;background:linear-gradient(100deg,#101a2a,#0c1420);box-shadow:0 10px 32px rgba(0,0,0,.18)}.server-name h2{font-size:19px}.live{font-size:11px}.server-phase{font-size:8px;letter-spacing:.8px}.controls .btn{min-width:105px}
+    .notice{font-size:11.5px;border-radius:10px;padding:11px 14px}.stats{gap:12px}.stat{padding:15px 16px;border-radius:12px;background:linear-gradient(145deg,#121d2d,#0e1724);min-height:116px;position:relative;overflow:hidden}.stat:after{content:"";position:absolute;inset:auto -20px -38px auto;width:90px;height:90px;border-radius:50%;background:var(--green);filter:blur(48px);opacity:.045}.stat-top{display:flex;align-items:center;gap:8px}.stat-glyph{display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:#19263a;color:var(--green);font-size:11px}.stat label{font-size:9px;letter-spacing:1.1px}.stat strong{font-size:21px;margin-top:13px}.stat small{font-size:10px}
+    .panel{border-radius:13px;background:var(--panel);box-shadow:0 10px 35px rgba(0,0,0,.17)}.tabs{height:51px;padding:0 14px;gap:4px;background:#0b121d}.tab{font-size:11.5px;padding:14px 13px}.tab small{display:block;font-size:7.5px;color:#5d6b80;margin-top:2px}.tab.active small{color:#75a98a}.console-toolbar{padding:9px 12px;background:#0d1521}.console-toolbar input{height:34px}.tool-btn{font-size:9.5px;padding:7px 9px}.console-shell{padding:12px}.console{height:420px;border-radius:9px;background:#05080d;font-size:11.5px}.command-zone{padding:0 12px 12px}.command input{height:39px}.quick-row select{height:36px}
+    .file-cloud-toolbar{background:#0b121d}.cloud-files>aside{background:#0b131f}.cloud-file-item{font-size:11.5px}.cloud-editor{border-radius:9px;background:#05080d}
+    .members-grid{gap:14px}.member-form,.member-list-wrap,.settings-card{background:linear-gradient(145deg,#101a29,#0c1420)}.member-row{font-size:12px}.settings-cards{gap:14px}
+    .login{background:radial-gradient(circle at 80% 20%,rgba(53,208,127,.11),transparent 31%),#070b12}.login-card{border-radius:20px;background:#0d1522}.login-copy{padding:50px}.login h1{font-size:40px;letter-spacing:-1px}.login-art{background:linear-gradient(145deg,rgba(31,178,101,.2),rgba(7,11,18,.5)),repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.022) 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(255,255,255,.022) 40px)}
+    .confirm-overlay{background:rgba(2,5,9,.76)}.confirm-card{border-radius:15px;background:#0d1623}.auth-form input,.member-form input,.member-form select,.settings-card input,.create-server-card select{border-radius:9px;background:#080e17}.wizard-summary span{border-radius:8px}.progress-track{height:8px}.provision-step{border-radius:8px}
+    .toast{border-radius:10px;background:#101a29}.empty{border-radius:13px;background:rgba(13,21,34,.45)}
+    ::selection{background:rgba(53,208,127,.26)}
+    :focus-visible{outline:2px solid rgba(53,208,127,.8)!important;outline-offset:2px}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    @media(max-width:760px){.topbar{height:61px}.layout{display:block}.sidebar{position:fixed;z-index:30;top:auto;bottom:0;right:0;left:0;height:62px;padding:6px;display:flex;border:0;border-top:1px solid var(--line);overflow-x:auto}.nav-title{display:none}.nav{min-width:92px;text-align:center;padding:7px 10px;box-shadow:none!important}.nav.active{box-shadow:inset 0 -2px var(--green)!important}.nav b{font-size:10px}.nav small{font-size:7px}.content{padding:18px 13px 80px}.head h1{font-size:23px}.head>div:last-child{width:100%;display:grid!important;grid-template-columns:1fr 1fr}.server-header{padding:15px}.controls{display:grid;grid-template-columns:1fr 1fr;width:100%}.controls .btn{min-width:0}.stats{grid-template-columns:1fr 1fr}.stat{min-height:105px;padding:13px}.tab{padding:12px 10px}.userbox #hfConnectBtn{display:none}.user-name{display:block}.brand small{display:none}}
+
+    /* ========================================================
+       SAW MC HOSTING — Minecraft-native hosting theme
+       ======================================================== */
+    :root{
+      --bg:#080c0b;--panel:#101713;--card:#141d17;--card2:#0c120f;
+      --line:#28352d;--line2:#3a4b3f;--muted:#8b9b90;--text:#f1f7f2;
+      --green:#58d36b;--green2:#2da94a;--blue:#45cddd;--red:#f05d67;
+      --amber:#e4b95a;--shadow:0 14px 40px rgba(0,0,0,.34);--r:9px;
+    }
+    body{background-color:#080c0b;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px),radial-gradient(circle at 85% -10%,rgba(82,203,104,.1),transparent 27%);background-size:32px 32px,32px 32px,auto}
+    .topbar{background:rgba(7,11,9,.94);border-bottom:2px solid #1d2a21}.brand-mark{position:relative;border-radius:6px;background:linear-gradient(#5bcf64 0 34%,#4b9f4e 34% 39%,#795334 39% 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.09),4px 4px 0 #17231a}.brand-mark i:before,.brand-mark i:after{content:"";position:absolute;background:rgba(0,0,0,.16)}.brand-mark i:before{width:8px;height:8px;left:7px;bottom:7px}.brand-mark i:after{width:6px;height:12px;right:7px;bottom:10px}.brand>div{font-weight:950;letter-spacing:-.2px}.brand small{color:#719278}
+    .sidebar{background:linear-gradient(180deg,#0b120e,#070b09);border-left:1px solid #223027}.nav-title{color:#56745e}.nav{border-radius:6px}.nav:hover{background:#142019}.nav.active{background:linear-gradient(90deg,rgba(88,211,107,.16),rgba(88,211,107,.04));border-color:#294a31;box-shadow:inset -4px 0 #59d36b}.nav.active b{color:#76e687}.nav small{color:#64766a}.nav.active small{color:#6ba779}
+    .page-kicker,.eyebrow{color:#65dc76;letter-spacing:2.4px}.head h1,.server-name h2{font-weight:950}.head h1:before{content:"⛏";font-size:.65em;color:var(--green);margin-left:8px}
+    .btn{border-radius:6px;background:#17211a;border-color:#2d3d32;font-weight:850;text-transform:none}.btn:hover{background:#1c2a20;border-color:#496250}.btn.primary{background:linear-gradient(#59d36b,#2eaa49);color:#08120a;border:1px solid #72e583;box-shadow:0 4px 0 #176f2c,0 9px 22px rgba(33,169,71,.18)}.btn.primary:hover{transform:translateY(-1px);box-shadow:0 5px 0 #176f2c,0 11px 25px rgba(33,169,71,.24)}.btn.primary:active{transform:translateY(3px);box-shadow:0 1px 0 #176f2c}.btn.danger{border-color:#573137;background:#271519;color:#ff8790}
+    .space-card{border-radius:8px;background:linear-gradient(145deg,#151f18,#0e1511);border-color:#29382e;box-shadow:5px 5px 0 rgba(0,0,0,.2);overflow:visible}.space-card:after{content:"";position:absolute;top:-1px;right:-1px;left:-1px;height:4px;background:linear-gradient(90deg,#51c763,#78de74,#3cab50);border-radius:8px 8px 0 0}.space-card:before{background:#52cf67;opacity:.055}.space-card:hover{border-color:#46644e;box-shadow:7px 7px 0 rgba(0,0,0,.23);transform:translate(-1px,-2px)}.space-icon{border-radius:5px;background:linear-gradient(#4ebc58 0 35%,#795539 36%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.06);color:#fff}.badge.agent{background:#14291a;border-color:#356d41;color:#6ee17e}
+    .server-header{border-radius:8px;border-color:#2b3a30;background:linear-gradient(110deg,#152019,#0c1310);box-shadow:5px 5px 0 rgba(0,0,0,.2)}.server-header:before{content:"SERVER INSTANCE";position:absolute;top:8px;left:13px;font-size:7px;letter-spacing:1.7px;color:#4d6854}.server-header{position:relative}.live.connected{color:#6ee17f}.server-phase{border-radius:4px}
+    .notice{border-radius:6px;background:#241e10;border-color:#5c4920;color:#edc96e}.stats{gap:11px}.stat{border-radius:7px;border-color:#2b3a30;background:linear-gradient(145deg,#172119,#101712);box-shadow:4px 4px 0 rgba(0,0,0,.16)}.stat:before{content:"";position:absolute;top:0;right:0;bottom:0;width:3px;background:#4ec962}.stat-glyph{border-radius:4px;background:#1d3122;color:#72e483;box-shadow:inset 0 0 0 1px #36533c}.stat label{color:#8fa395}.stat strong{font-weight:950}
+    .panel{border-radius:8px;border-color:#2a3930;background:#0f1712;box-shadow:5px 5px 0 rgba(0,0,0,.19)}.tabs{background:#0b110e;border-radius:8px 8px 0 0}.tab{font-weight:850}.tab.active{color:#72e483;border-bottom-color:#64d975}.console-toolbar{background:#101812}.console{background:#030604;color:#92f4a2;border-color:#26382b;box-shadow:inset 0 0 28px rgba(40,153,61,.035)}.log-info{color:#b8cbbb}.log-system{color:#78e58a}.command input,.console-toolbar input{background:#070c09;border-color:#2b3b30}.command input:focus,.console-toolbar input:focus{border-color:#55c868;box-shadow:0 0 0 2px rgba(85,200,104,.1)}
+    .tool-btn{border-radius:4px;background:#162019;border-color:#2b3b30}.tool-btn.active{background:#17331d;color:#71e083;border-color:#386e42}.kbd{border-radius:3px;background:#18221b}
+    .cloud-files>aside{background:#0c130f}.cloud-file-item{border-radius:5px}.cloud-file-item:hover,.cloud-file-item.active{background:#18271c;color:#75e286}.cloud-editor{background:#030604;border-color:#27392c;color:#a4f4af}
+    .login-card{border-radius:12px;border-color:#2b3a30;box-shadow:8px 8px 0 rgba(0,0,0,.28)}.login-art{background:linear-gradient(145deg,rgba(54,173,74,.25),rgba(7,11,8,.55)),repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.025) 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(255,255,255,.025) 40px)}.cube{filter:drop-shadow(8px 12px 0 rgba(0,0,0,.25))}.auth-form input,.member-form input,.member-form select,.settings-card input,.create-server-card select{border-radius:5px;background:#080e0a;border-color:#2c3c31}.confirm-card{border-radius:9px;border-color:#304136;background:#111914;box-shadow:8px 8px 0 rgba(0,0,0,.3)}.wizard-summary span,.provision-step{border-radius:5px;background:#0b120e}.progress-fill{background:repeating-linear-gradient(45deg,#54d168 0 10px,#45bc58 10px 20px)}
+    .settings-card,.member-form,.member-list-wrap{background:linear-gradient(145deg,#151f18,#0e1511)}.member-row{border-bottom-color:#29372e}.role-chip{border-radius:4px;background:#152a1a;border-color:#315d39}.toast{border-radius:6px;border-color:#34473a;background:#121b15;box-shadow:5px 5px 0 rgba(0,0,0,.25)}
+    ::-webkit-scrollbar-thumb{background:#33493a;border-radius:2px}::-webkit-scrollbar-thumb:hover{background:#477057}
+    @media(max-width:760px){.sidebar{background:#09100c}.nav.active{box-shadow:inset 0 -3px #5bd26c!important}.brand>div{font-size:12px}.stats{gap:8px}.stat{box-shadow:3px 3px 0 rgba(0,0,0,.16)}}
+.mc-specs{display:flex;gap:5px;margin:-7px 0 13px;direction:ltr;justify-content:flex-end}.mc-specs span{font-size:7px;font-weight:900;letter-spacing:.7px;padding:4px 6px;border:1px solid #304337;background:#101a13;color:#789b80;border-radius:3px}.mc-specs span:nth-child(1){color:#73df83}.mc-specs span:nth-child(2){color:#51cddd}.mc-specs span:nth-child(3){color:#dfbc67}
+    
+    /* v1.1 App Shell, Overview and Server Dashboard */
+    .topbar-actions{display:flex;align-items:center;gap:8px;position:relative}.top-icon{width:36px;height:36px;border:1px solid var(--line);background:#111a14;color:#98a99c;border-radius:6px;display:grid;place-items:center;font-size:17px;position:relative}.top-icon:hover{color:#76e687;border-color:#45604c}.notify-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#f0bd56;top:7px;left:7px;box-shadow:0 0 0 2px #0a100c}.account-menu-wrap{position:relative}.account-trigger{border:1px solid var(--line);background:#0d1510;color:var(--text);border-radius:7px;padding:5px 8px 5px 11px;display:flex;align-items:center;gap:9px;min-width:165px}.account-trigger:hover{border-color:#415a48;background:#121d16}.account-trigger .avatar{width:31px;height:31px}.account-trigger .user-name{display:grid;text-align:right;line-height:1.2}.account-trigger .user-name strong{font-size:11px}.account-trigger .user-name small{font-size:8px;color:#718078}.chevron{margin-right:auto;color:#65766a}.account-dropdown{position:absolute;top:47px;left:0;width:225px;background:#101813;border:1px solid #304137;border-radius:8px;padding:7px;box-shadow:0 18px 50px rgba(0,0,0,.4);z-index:80}.dropdown-label{font-size:8px;letter-spacing:1.8px;color:#5e7064;padding:8px}.dropdown-item{width:100%;border:0;background:transparent;color:#b8c5bb;text-align:right;padding:10px;border-radius:5px;font-size:11px}.dropdown-item:hover{background:#18231b;color:#fff}.dropdown-sep{height:1px;background:#29382e;margin:5px}.danger-text{color:#f37a83!important}
+    .sidebar{display:flex;flex-direction:column}.server-context{border-top:1px solid #1d2a21;margin-top:12px;padding-top:8px}.sidebar-bottom{margin-top:auto;border-top:1px solid #1d2a21;padding-top:8px}.server-nav b{color:#aebbb1}
+    .home-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:17px}.summary-card{background:linear-gradient(145deg,#141e17,#0d1510);border:1px solid #29382e;border-radius:7px;padding:14px 15px;box-shadow:4px 4px 0 rgba(0,0,0,.15);position:relative;overflow:hidden}.summary-card:before{content:"";position:absolute;top:0;right:0;left:0;height:2px;background:#4fc762;opacity:.75}.summary-card span{font-size:8px;letter-spacing:1.2px;color:#718378;font-weight:900}.summary-card strong{display:block;font-size:23px;margin:9px 0 2px}.summary-card small{font-size:9px;color:#637268}
+    .dashboard-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:11px;margin-bottom:12px}.connection-card,.health-card{padding:16px}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}.panel-head h3{font-size:13px;margin:3px 0}.panel-kicker{font-size:7px;letter-spacing:1.6px;color:#5fd272;font-weight:900}.connection-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #26342b}.edition-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:5px;font-weight:950;font-size:12px}.edition-icon.java{background:#21331f;color:#79e489;border:1px solid #3d6242}.edition-icon.bedrock{background:#132b30;color:#54d2e0;border:1px solid #27565e}.connection-row label{display:block;font-size:7px;letter-spacing:1.1px;color:#6f8175}.connection-row strong{display:block;font-size:11px;margin-top:4px;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.copy-address{border:1px solid #314239;background:#141f18;color:#8fa195;border-radius:4px;padding:7px 9px;font-size:9px}.copy-address:hover{color:#72e483;border-color:#46624e}.health-list{display:grid;gap:1px}.health-list>div{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid #26342b;font-size:10px;color:#9ba99f}.health{font-size:7px;letter-spacing:.7px;padding:4px 6px;border-radius:3px;text-transform:uppercase}.health.online{color:#70df80;background:#17301c}.health.offline{color:#ff7d86;background:#30171a}.health.unknown{color:#9aa79e;background:#1c241e}.health.starting{color:#efc36c;background:#302818}
+    @media(max-width:1050px){.home-summary{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:1fr}.account-trigger{min-width:0}.account-trigger .user-name{display:none}}
+    @media(max-width:760px){.top-icon{display:none}.account-trigger{border:0;background:transparent;padding:0}.account-trigger .chevron{display:none}.account-dropdown{position:fixed;left:12px;right:12px;top:70px;width:auto}.server-context{display:contents}.sidebar-bottom{display:contents}.home-summary{grid-template-columns:1fr 1fr;gap:8px}.summary-card{padding:12px}.summary-card strong{font-size:19px}.dashboard-grid{grid-template-columns:1fr}.connection-card,.health-card{padding:13px}.sidebar .server-nav:nth-of-type(n+5){display:none}}
+.empty strong{display:block;color:var(--text);font-size:15px}.empty p{font-size:11px;margin:7px 0 15px}.empty-block{width:52px;height:52px;margin:0 auto 14px;background:linear-gradient(#55c75f 0 34%,#765236 35%);border-radius:5px;box-shadow:5px 5px 0 rgba(0,0,0,.25),inset 0 0 0 2px rgba(255,255,255,.06)}.space-actions a{text-decoration:none}.sidebar-bottom .nav{margin-bottom:2px}
+    </style>
+</head>
+<body>
+<div id="demoBanner" class="demo-banner hidden">وضع المعاينة — اربط Backend وOAuth لتشغيل الموقع فعليًا</div>
+<section id="loginView" class="login">
+  <div class="login-card auth-card">
+    <div class="login-copy">
+      <div class="eyebrow">SAW · MINECRAFT HOSTING</div>
+      <h1 id="authHeading">تسجيل الدخول</h1>
+      <p id="authSubtitle">ادخل إلى حسابك لإدارة سيرفراتك والصلاحيات المشتركة.</p>
+      <form id="authForm" class="auth-form">
+        <div id="usernameField" class="hidden"><label>اسم المستخدم</label><input id="authUsername" autocomplete="username" placeholder="sayed125"></div>
+        <div><label>البريد الإلكتروني</label><input id="authEmail" type="email" autocomplete="email" required placeholder="name@example.com"></div>
+        <div><label>كلمة المرور</label><input id="authPassword" type="password" autocomplete="current-password" required minlength="8" placeholder="8 أحرف على الأقل"></div>
+        <button id="authSubmit" class="btn primary" type="submit">دخول</button>
+      </form>
+      <div class="auth-switch"><span id="authSwitchText">ليس لديك حساب؟</span> <button id="authSwitch" type="button">إنشاء حساب</button></div>
+
+    </div>
+    <div class="login-art"><div class="auth-art"><div class="cube">⛏️</div><strong>استضافة Minecraft من مكان واحد</strong><span>Java وBedrock وConsole وملفات ونسخ احتياطية في لوحة مصممة للسيرفرات.</span></div></div>
+  </div>
+</section>
+
+<div id="appView" class="shell hidden">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark"><i></i></span><div>SAW MC Hosting<small>MINECRAFT SERVER PANEL</small></div></div>
+    <div class="topbar-actions"><button id="globalSearchBtn" class="top-icon" title="Search">⌕</button><button id="notificationsBtn" class="top-icon" title="Notifications">♢<span class="notify-dot"></span></button><div class="account-menu-wrap"><button id="accountMenuBtn" class="account-trigger"><img id="avatar" class="avatar" alt=""><span class="user-name"><strong id="username">—</strong><small id="accountStatus">حساب الموقع</small></span><span class="chevron">⌄</span></button><div id="accountMenu" class="account-dropdown hidden"><div class="dropdown-label">ACCOUNT</div><button id="hfConnectBtn" class="dropdown-item">🔗 ربط Hugging Face</button><button id="accountSettingsBtn" class="dropdown-item">⚙ إعدادات الحساب</button><div class="dropdown-sep"></div><button id="logoutBtn" class="dropdown-item danger-text">خروج</button></div></div></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="nav-title">GLOBAL</div>
+      <button class="nav active" id="navAllServers" data-view="spaces"><b>▦ السيرفرات</b><small>All Servers</small></button>
+      <button class="nav" id="navCreateServer"><b>＋ إنشاء سيرفر</b><small>Create Server</small></button>
+      <button class="nav" id="navSharedServers"><b>◇ مشتركة معي</b><small>Shared With Me</small></button>
+      <button class="nav" data-view="activity"><b>◷ سجل النشاط</b><small>Global Activity</small></button>
+      <div id="serverContextNav" class="server-context hidden"><div class="nav-title">SELECTED SERVER</div><button class="nav" data-view="server"><b>▦ Dashboard</b><small>Overview</small></button><button class="nav server-nav" data-server-page="console"><b>⌁ Console</b><small>Live Terminal</small></button><button class="nav server-nav" data-server-page="files"><b>▤ الملفات</b><small>File Manager</small></button><button class="nav server-nav" data-server-page="players"><b>♟ اللاعبون</b><small>Players</small></button><button class="nav server-nav" data-server-page="backups"><b>◫ النسخ</b><small>Backups</small></button><button class="nav server-nav" data-server-page="info"><b>⌘ الشبكة</b><small>Network</small></button><button class="nav" data-view="members"><b>♙ الأعضاء</b><small>Access Control</small></button></div>
+      <div class="sidebar-bottom"><div class="nav-title">ACCOUNT</div><button class="nav" data-view="settings"><b>⚙ الإعدادات</b><small>Account Settings</small></button></div>
+    </aside>
+    <main class="content">
+      <section id="spacesView">
+        <div class="head"><div><div class="page-kicker">MINECRAFT SERVERS</div><h1>السيرفرات</h1><p>أنشئ وأدر جميع Minecraft Spaces من لوحة واحدة.</p></div><div style="display:flex;gap:8px"><button id="createServerBtn" class="btn primary">＋ CREATE SERVER</button><button id="refreshSpaces" class="btn">↻ تحديث</button></div></div>
+        <div class="home-summary"><div class="summary-card"><span>ALL SERVERS</span><strong id="homeTotalServers">0</strong><small>Total instances</small></div><div class="summary-card"><span>AGENT READY</span><strong id="homeAgentReady">0</strong><small>Healthy agents</small></div><div class="summary-card"><span>SHARED</span><strong id="homeSharedServers">0</strong><small>Shared with me</small></div><div class="summary-card"><span>HUGGING FACE</span><strong id="homeHfState">—</strong><small>Account link</small></div></div>
+        <div id="spacesGrid" class="spaces"><div class="loading"><span class="spinner"></span></div></div>
+      </section>
+
+      <section id="serverView" class="hidden">
+        <div class="server-header">
+          <div class="server-name"><h2 id="serverName">username/server</h2><div id="serverLive" class="live connecting"><span class="dot"></span><span>جارٍ الاتصال بالـ Agent...</span><span id="phaseBadge" class="server-phase">CONNECTING</span><span id="accessRole" class="server-phase">—</span></div></div>
+          <div class="controls"><button class="btn primary action" data-action="start" disabled>▶ تشغيل</button><button class="btn action" data-action="restart" disabled>↻ إعادة تشغيل</button><button class="btn danger action" data-action="stop" disabled>■ إيقاف</button><button id="backSpaces" class="btn ghost">كل السيرفرات</button></div>
+        </div>
+        <div id="agentNotice" class="notice hidden">Agent غير متوافق أو غير متصل. حدّث ملفات السيرفر ثم أعد فحص الاتصال.</div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span class="stat-glyph">▦</span><label>NODE / SPACE</label></div><strong id="spaceStage">—</strong><small id="hardware">Hugging Face</small></div><div class="stat"><div class="stat-top"><span class="stat-glyph">⛏</span><label>MINECRAFT STATUS</label></div><strong id="mcStatus">—</strong><small>Purpur Agent</small></div><div class="stat"><div class="stat-top"><span class="stat-glyph">♟</span><label>ONLINE PLAYERS</label></div><strong id="players">0</strong><small>Online now</small></div><div class="stat"><div class="stat-top"><span class="stat-glyph">▥</span><label>JAVA MEMORY</label></div><strong id="memory">—</strong><small>Process usage</small></div></div>
+        <div class="dashboard-grid"><div class="panel connection-card"><div class="panel-head"><div><span class="panel-kicker">CONNECTIONS</span><h3>عناوين الاتصال</h3></div><button id="testConnections" class="tool-btn">Test</button></div><div class="connection-row"><span class="edition-icon java">J</span><div><label>JAVA EDITION</label><strong id="javaAddress">Waiting for Playit...</strong></div><button class="copy-address" data-copy-target="javaAddress">Copy</button></div><div class="connection-row"><span class="edition-icon bedrock">B</span><div><label>BEDROCK EDITION</label><strong id="bedrockAddress">UDP tunnel not detected</strong></div><button class="copy-address" data-copy-target="bedrockAddress">Copy</button></div></div><div class="panel health-card"><div class="panel-head"><div><span class="panel-kicker">SERVICE HEALTH</span><h3>حالة مكونات السيرفر</h3></div></div><div class="health-list"><div><span>Hugging Face Space</span><b id="healthSpace" class="health unknown">Unknown</b></div><div><span>MC Agent</span><b id="healthAgent" class="health offline">Offline</b></div><div><span>Minecraft Server</span><b id="healthMinecraft" class="health unknown">Unknown</b></div><div><span>Java TCP Tunnel</span><b id="healthJava" class="health unknown">Unknown</b></div><div><span>Bedrock UDP Tunnel</span><b id="healthBedrock" class="health unknown">Unknown</b></div></div></div></div>
+
+        <div class="panel">
+          <div class="tabs"><button class="tab server-tab active" data-server-tab="console">Console</button><button class="tab server-tab" data-server-tab="files">الملفات <small>Files</small></button><button class="tab server-tab" data-server-tab="players">اللاعبون <small>Players</small></button><button class="tab server-tab" data-server-tab="backups">النسخ <small>Backups</small></button><button class="tab server-tab" data-server-tab="info">نظرة عامة <small>Overview</small></button></div>
+          <div id="serverTab-console" class="server-tab-page">
+          <div class="console-toolbar">
+            <input id="logSearch" type="search" placeholder="بحث داخل السجل...">
+            <button class="tool-btn level-filter active" data-level="all">الكل</button>
+            <button class="tool-btn level-filter" data-level="info">INFO</button>
+            <button class="tool-btn warn level-filter" data-level="warn">WARN</button>
+            <button class="tool-btn error level-filter" data-level="error">ERROR</button>
+            <button id="wrapLogs" class="tool-btn active">↩ التفاف</button>
+            <button id="copyLogs" class="tool-btn">نسخ</button>
+            <button id="downloadLogs" class="tool-btn">تنزيل</button>
+            <button id="clearLogs" class="tool-btn">مسح العرض</button>
+          </div>
+          <div class="console-shell"><div id="console" class="console" role="log" aria-live="polite"></div><button id="newLogs" class="new-logs hidden">↓ رسائل جديدة</button></div>
+          <div class="command-zone">
+            <div class="quick-row"><select id="quickCommand"><option value="">أوامر سريعة...</option><option value="list">عرض اللاعبين</option><option value="save-all flush">حفظ العالم الآن</option><option value="tps">عرض TPS</option><option value="mspt">عرض MSPT</option><option value="say ">إرسال إعلان</option><option value="whitelist on">تفعيل Whitelist</option><option value="whitelist list">عرض Whitelist</option><option value="weather clear">طقس صافٍ</option><option value="time set day">وقت النهار</option></select><span id="commandResult" class="muted"></span></div>
+            <div class="command"><input id="commandInput" autocomplete="off" placeholder="اكتب أمرًا مثل list"><button id="sendCommand" class="btn primary" disabled>إرسال</button></div>
+            <div class="command-status"><span>لا تحتاج إلى كتابة /</span><span><span class="kbd">Enter</span> إرسال · <span class="kbd">↑↓</span> السجل</span></div>
+          </div>
+          </div>
+          <div id="serverTab-files" class="server-tab-page hidden">
+            <div class="file-cloud-toolbar"><button id="fileUp" class="btn">⬆ للأعلى</button><button id="fileRefresh" class="btn">↻ تحديث</button><span id="filePath" class="file-path">/root</span></div>
+            <div class="cloud-files"><aside><h3>المجلدات</h3><div id="cloudFolders" class="cloud-file-list"></div><h3>الملفات</h3><div id="cloudFiles" class="cloud-file-list"></div></aside><section><div class="file-editor-head"><strong id="cloudFileTitle">اختر ملفًا نصيًا</strong><button id="saveCloudFile" class="btn primary" disabled>💾 حفظ مع نسخة احتياطية</button></div><textarea id="cloudFileEditor" class="cloud-editor" disabled placeholder="اختر ملفًا من القائمة..."></textarea><div id="cloudFileStatus" class="muted"></div></section></div>
+          </div>
+          <div id="serverTab-players" class="server-tab-page hidden"><div class="simple-page"><h3>اللاعبون المتصلون</h3><div id="playersDetailed" class="player-grid"><span class="muted">جارٍ تحميل اللاعبين...</span></div></div></div>
+          <div id="serverTab-backups" class="server-tab-page hidden"><div class="simple-page"><h3>حفظ ونسخ احتياطي</h3><p class="muted">نفّذ حفظًا كاملًا للعالم قبل تنزيل أو نسخ ملفات العالم.</p><button id="saveWorldNow" class="btn primary">💾 save-all flush</button><div class="notice" style="margin-top:14px">النسخ المضغوطة والاستعادة ستضاف بعد تفعيل تخزين دائم للـ Space.</div></div></div>
+          <div id="serverTab-info" class="server-tab-page hidden"><div class="simple-page"><h3>معلومات الاتصال</h3><div id="serverInfoDetails" class="info-list"></div></div></div>
+        </div>
+      </section>
+
+      <section id="membersView" class="hidden">
+        <div class="head"><div><h1>الأعضاء والصلاحيات</h1><p>امنح مستخدمًا مسجلًا في الموقع صلاحية على سيرفرك.</p></div></div>
+        <div class="members-grid">
+          <div class="panel member-form"><h3>إضافة أو تحديث عضو</h3><label>السيرفر</label><select id="memberServer"></select><label>اسم المستخدم في الموقع</label><input id="memberUsername" placeholder="friend_username"><label>الدور</label><select id="memberRole"><option value="viewer">مشاهد</option><option value="editor">محرر ملفات</option><option value="operator">مشغل</option><option value="admin">مدير</option></select><button id="grantMember" class="btn primary">حفظ الصلاحية</button><div id="memberResult" class="muted"></div></div>
+          <div class="panel member-list-wrap"><h3>أعضاء السيرفر</h3><div id="membersList" class="member-list"><span class="muted">اختر سيرفرًا.</span></div></div>
+        </div>
+      </section>
+      <section id="activityView" class="hidden"><div class="head"><div><h1>سجل النشاط</h1><p>آخر العمليات في هذه الجلسة.</p></div></div><div id="activityList" class="panel" style="padding:18px"><span class="muted">لا توجد عمليات بعد.</span></div></section>
+      <section id="settingsView" class="hidden"><div class="head"><div><h1>إعدادات الحساب</h1><p>الملف الشخصي والأمان والحسابات المرتبطة.</p></div></div><div class="settings-cards"><div class="panel settings-card"><h3>الملف الشخصي</h3><label>اسم المستخدم</label><input id="settingsUsername" disabled><label>الاسم الظاهر</label><input id="settingsDisplayName" placeholder="الاسم الظاهر"><button id="saveProfile" class="btn primary">حفظ الملف الشخصي</button></div><div class="panel settings-card"><h3>الأمان</h3><label>كلمة مرور جديدة</label><input id="newPassword" type="password" minlength="8" placeholder="8 أحرف على الأقل"><button id="changePassword" class="btn">تغيير كلمة المرور</button><small class="muted">لن يتم عرض كلمة المرور الحالية أو تخزينها في قاعدة البيانات العامة.</small></div><div class="panel settings-card"><h3>Hugging Face</h3><div id="hfSettingsStatus" class="notice">غير مرتبط</div><button id="reconnectHf" class="btn primary">ربط / تجديد الاتصال</button><button id="disconnectHf" class="btn danger">فصل من هذا المتصفح</button><small class="muted">تجديد الربط يعيد تمكين التحكم المشترك إذا انتهت صلاحية Token.</small></div></div></section>
+    </main>
+  </div>
+</div>
+<div id="createServerOverlay" class="confirm-overlay hidden"><div class="confirm-card create-server-card"><div class="wizard-head"><div><span class="eyebrow">AUTOMATIC MC DEPLOYMENT</span><h3>إنشاء Minecraft Server</h3></div><button id="closeCreateServer" class="tool-btn">✕</button></div><form id="createServerForm" class="auth-form"><div><label>اسم السيرفر</label><input id="newServerDisplayName" required maxlength="80" placeholder="Survival Server"></div><div><label>اسم Hugging Face Space</label><input id="newServerSpaceName" required pattern="[a-z0-9][a-z0-9._-]{2,63}" placeholder="survival-server"><small class="muted">حروف إنجليزية صغيرة وأرقام و - و _ فقط</small></div><div><label>إصدار Minecraft</label><select id="newServerVersion"><optgroup label="الأحدث"><option value="26.2">26.2 — Latest · Java 25</option><option value="26.1.2">26.1.2 · Java 25</option></optgroup><optgroup label="1.21.x"><option value="1.21.11">1.21.11 · Java 21</option><option value="1.21.10">1.21.10 · Java 21</option><option value="1.21.9">1.21.9 · Java 21</option><option value="1.21.8">1.21.8 · Java 21</option><option value="1.21.7">1.21.7 · Java 21</option><option value="1.21.6">1.21.6 · Java 21</option><option value="1.21.5">1.21.5 · Java 21</option><option value="1.21.4">1.21.4 · Java 21</option><option value="1.21.3">1.21.3 · Java 21</option><option value="1.21.1" selected>1.21.1 — Stable · Java 21</option><option value="1.21">1.21 · Java 21</option></optgroup><optgroup label="1.20.x"><option value="1.20.6">1.20.6 · Java 21</option></optgroup><optgroup label="Legacy — يظهر الآن وسيُفعّل بعد Proxy Profiles"><option disabled>1.20.4 · Java 17 · Proxy required</option><option disabled>1.20.2 · Java 17 · Proxy required</option><option disabled>1.20.1 · Java 17 · Proxy required</option><option disabled>1.20 · Java 17 · Proxy required</option><option disabled>1.19.4</option><option disabled>1.19.3</option><option disabled>1.19.2</option><option disabled>1.19.1</option><option disabled>1.19</option><option disabled>1.18.2</option><option disabled>1.18.1</option><option disabled>1.18</option><option disabled>1.17.1</option><option disabled>1.17</option><option disabled>1.16.5</option><option disabled>1.16.4</option><option disabled>1.16.3</option><option disabled>1.16.2</option><option disabled>1.16.1</option><option disabled>1.15.2</option><option disabled>1.15.1</option><option disabled>1.15</option><option disabled>1.14.4</option><option disabled>1.14.3</option><option disabled>1.14.2</option><option disabled>1.14.1</option></optgroup></select></div><div><label>الحد الأقصى للاعبين</label><input id="newServerMaxPlayers" type="number" min="1" max="100" value="20"></div><div class="wizard-summary"><span>🔒 Private Space</span><span>🗄️ Private Dataset</span><span>⚡ ZeroGPU</span><span>🎮 Java + Bedrock</span></div><label class="eula-check"><input id="newServerEula" type="checkbox" required> قرأت ووافقت على Minecraft EULA</label><button id="submitCreateServer" class="btn primary" type="submit">إنشاء وتجهيز السيرفر</button><div id="createServerError" class="log-error"></div></form></div></div>
+<div id="provisionOverlay" class="confirm-overlay hidden"><div class="confirm-card provision-card"><div class="spinner"></div><h3 id="provisionTitle">جارٍ إنشاء السيرفر...</h3><p id="provisionMessage" class="muted">لا تغلق الصفحة أثناء إرسال الطلب الأول.</p><div class="progress-track"><div id="provisionBar" class="progress-fill"></div></div><div id="provisionPercent" class="provision-percent">0%</div><div id="provisionSteps" class="provision-steps"></div><button id="closeProvision" class="btn hidden">إغلاق</button></div></div>
+<div id="confirmOverlay" class="confirm-overlay hidden"><div class="confirm-card"><div class="confirm-icon">⚠️</div><h3 id="confirmTitle">تأكيد العملية</h3><p id="confirmText">هل تريد المتابعة؟</p><div class="confirm-actions"><button id="confirmYes" class="btn danger">تأكيد</button><button id="confirmNo" class="btn">إلغاء</button></div></div></div>
+<div id="toasts" class="toast-wrap"></div>
+<script src="./config.js"></script>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const SITE_CONFIG = window.MC_CLOUD_CONFIG || {};
+const SUPABASE_READY = /^https:\/\/.+\.supabase\.co$/.test(SITE_CONFIG.supabaseUrl || "") && !String(SITE_CONFIG.supabaseAnonKey || "").startsWith("YOUR_");
+const supabase = SUPABASE_READY ? createClient(SITE_CONFIG.supabaseUrl, SITE_CONFIG.supabaseAnonKey, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false } }) : null;
+
+const HF_AUTHORIZE = "https://huggingface.co/oauth/authorize";
+const HF_TOKEN = "https://huggingface.co/oauth/token";
+const HF_USERINFO = "https://huggingface.co/oauth/userinfo";
+const REPO_BASE = "/SAW/";
+const REDIRECT_URI = `${location.origin}${REPO_BASE}`;
+const CLIENT_ID = `${location.origin}${REPO_BASE}.well-known/oauth-cimd`;
+const SCOPES = "openid profile manage-repos";
+const AGENT_APIS = {
+  status: "/server_status", logs: "/server_logs",
+  resources: "/server_resources", players: "/server_players",
+  start: "/start_server", stop: "/stop_server",
+  restart: "/restart_server", command: "/send_command",
+  file_list: "/files_list", file_read: "/file_read", file_write: "/file_write"
+};
+
+const state={token:null,hfUser:null,user:null,profile:null,siteSession:null,spaces:[],selected:null,serverRecord:null,demo:false,poll:null,activity:[],gradio:null,rawLogs:'',logFilter:'all',connected:false,phase:'offline',authMode:'login',spaceFilter:'all',filePath:'',selectedFile:'',provisionTimer:null,activeProvisionJob:null,cmdHistory:JSON.parse(sessionStorage.getItem('mc_cmd_history')||'[]'),cmdIndex:0};
+const $=s=>document.querySelector(s); const $$=s=>document.querySelectorAll(s);
+function toast(msg,bad=false){const e=document.createElement('div');e.className='toast'+(bad?' bad':'');e.textContent=msg;$('#toasts').append(e);setTimeout(()=>e.remove(),4200)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function b64url(bytes){return btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function randomValue(size=48){const bytes=new Uint8Array(size);crypto.getRandomValues(bytes);return b64url(bytes)}
+async function sha256(value){return new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))}
+function profileName(u){return u.preferred_username||u.name||u.nickname||u.sub||'user'}
+function authHeaders(){return state.token?{Authorization:`Bearer ${state.token}`}:{}}
+async function jsonFetch(url,opt={}){opt.headers={Accept:'application/json',...(opt.headers||{}),...authHeaders()};const r=await fetch(url,opt);let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.error_description||d.error||d.detail||`HTTP ${r.status}`);return d}
+
+async function beginLogin(){
+  try{
+    const verifier=randomValue(64), oauthState=randomValue(32);
+    const challenge=b64url(await sha256(verifier));
+    sessionStorage.setItem('hf_pkce_verifier',verifier);
+    sessionStorage.setItem('hf_oauth_state',oauthState);
+    const q=new URLSearchParams({client_id:CLIENT_ID,redirect_uri:REDIRECT_URI,response_type:'code',scope:SCOPES,state:oauthState,code_challenge:challenge,code_challenge_method:'S256'});
+    location.href=`${HF_AUTHORIZE}?${q}`;
+  }catch(e){toast('تعذر بدء الربط: '+e.message,true)}
+}
+
+async function finishLogin(){
+  const q=new URLSearchParams(location.search), code=q.get('code');
+  if(!code)return false;
+  const returnedState=q.get('state'), expected=sessionStorage.getItem('hf_oauth_state');
+  const verifier=sessionStorage.getItem('hf_pkce_verifier');
+  history.replaceState({},'',REDIRECT_URI);
+  if(!returnedState||!expected||returnedState!==expected||!verifier)throw new Error('فشل التحقق من جلسة OAuth');
+  const body=new URLSearchParams({grant_type:'authorization_code',client_id:CLIENT_ID,code,redirect_uri:REDIRECT_URI,code_verifier:verifier});
+  const r=await fetch(HF_TOKEN,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded',Accept:'application/json'},body});
+  const d=await r.json(); if(!r.ok||!d.access_token)throw new Error(d.error_description||'فشل استلام Access Token');
+  sessionStorage.removeItem('hf_pkce_verifier');sessionStorage.removeItem('hf_oauth_state');
+  sessionStorage.setItem('hf_access_token',d.access_token);
+  sessionStorage.setItem('hf_token_expires',String(Date.now()+(Number(d.expires_in||28800)*1000)));
+  state.token=d.access_token;
+  // Store the owner's HF token server-side so authorized friends can use the Agent
+  // without ever receiving the owner's token.
+  if(supabase && state.siteSession){
+    const {error}=await supabase.functions.invoke('link-huggingface',{body:{hf_access_token:d.access_token}});
+    if(error)toast('تم الربط محليًا، لكن تعذر حفظ الربط للخادم: '+error.message,true);
+  }
+  return true;
+}
+
+async function logout(){
+  sessionStorage.removeItem('hf_access_token');sessionStorage.removeItem('hf_token_expires');
+  state.token=null;state.hfUser=null;
+  if(supabase)await supabase.auth.signOut();
+  location.href=REDIRECT_URI;
+}
+function avatarData(label='U'){return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><rect width="100%" height="100%" rx="25" fill="#1b293d"/><text x="50%" y="58%" text-anchor="middle" fill="white" font-size="20">${esc(label.slice(0,2).toUpperCase())}</text></svg>`)}
+function showApp(profile){state.profile=profile;state.user=profile;$('#loginView').classList.add('hidden');$('#appView').classList.remove('hidden');$('#username').textContent=profile.username||'user';$('#avatar').src=profile.avatar_url||avatarData(profile.username||'U');updateHfButton();loadSpaces()}
+function showLogin(){$('#appView').classList.add('hidden');$('#loginView').classList.remove('hidden')}
+function updateHfButton(){const b=$('#hfConnectBtn');if(state.token&&state.hfUser){b.textContent='✓ '+profileName(state.hfUser);b.classList.add('hf-linked');$('#accountStatus').textContent='Hugging Face مرتبط'}else{b.textContent='🔗 ربط Hugging Face';b.classList.remove('hf-linked');$('#accountStatus').textContent='حساب الموقع'}}
+function demoData(){state.demo=true;$('#demoBanner').classList.remove('hidden');state.siteSession={user:{id:'demo-user'}};showApp({id:'demo-user',username:'demo-player'});state.token='demo';state.hfUser={preferred_username:'demo-player'};updateHfButton();state.spaces=[{id:'demo-player/survival-world',title:'Survival World',sdk:'gradio',private:true,is_agent:true,source:'owned',server_db_id:'demo-server'},{id:'friend/shared-world',title:'Shared World',sdk:'gradio',private:true,is_agent:true,source:'shared',role:'operator',server_db_id:'shared-server'}];renderSpaces()}
+
+async function loadSiteProfile(user){
+  const {data,error}=await supabase.from('profiles').select('*').eq('id',user.id).single();
+  if(error)throw error;return data;
+}
+async function boot(){
+  $('#hfConnectBtn').onclick=()=>beginLogin();
+  if(location.search.includes('demo=1'))return demoData();
+  if(!SUPABASE_READY){showLogin();return}
+  const {data:{session}}=await supabase.auth.getSession();
+  if(!session){showLogin();return}
+  state.siteSession=session;
+  try{state.profile=await loadSiteProfile(session.user)}catch(e){showLogin();toast('تعذر تحميل الملف الشخصي: '+e.message,true);return}
+  try{await finishLogin()}catch(e){toast(e.message,true)}
+  const token=sessionStorage.getItem('hf_access_token'),expires=Number(sessionStorage.getItem('hf_token_expires')||0);
+  if(token&&Date.now()<expires){state.token=token;try{state.hfUser=await jsonFetch(HF_USERINFO);const {error}=await supabase.functions.invoke('link-huggingface',{body:{hf_access_token:token}});if(error)console.warn('HF server link sync failed',error)}catch{state.token=null;sessionStorage.removeItem('hf_access_token')}}
+  showApp(state.profile);
+}
+
+async function handleSiteAuth(event){
+  event.preventDefault();
+  if(!supabase){toast('خدمة الحسابات غير متاحة حاليًا. حاول مرة أخرى لاحقًا.',true);return;}
+  const email=$('#authEmail').value.trim(),password=$('#authPassword').value,username=$('#authUsername').value.trim().toLowerCase();
+  const button=$('#authSubmit');button.disabled=true;button.textContent='جارٍ التنفيذ...';
+  try{
+    if(state.authMode==='register'){
+      if(!/^[a-z0-9_.-]{3,32}$/.test(username))throw new Error('اسم المستخدم: 3–32 حرفًا إنجليزيًا أو رقمًا');
+      const lastSignup=Number(localStorage.getItem('mc_last_signup_attempt')||0),remaining=Math.ceil((60000-(Date.now()-lastSignup))/1000);
+      if(remaining>0)throw new Error(`انتظر ${remaining} ثانية قبل محاولة إنشاء حساب أخرى`);
+      localStorage.setItem('mc_last_signup_attempt',String(Date.now()));
+      const {data,error}=await supabase.auth.signUp({email,password,options:{data:{username,display_name:username}}});if(error)throw error;
+      if(!data.session){toast('تم إنشاء الحساب. افتح رسالة تأكيد البريد ثم سجل الدخول.');switchAuthMode('login');return}
+    }else{
+      const {error}=await supabase.auth.signInWithPassword({email,password});if(error)throw error;
+    }
+    location.reload();
+  }catch(e){
+    const message=String(e?.message||e);
+    if(/email rate limit|rate limit exceeded/i.test(message))toast('تم تجاوز حد رسائل Supabase المؤقت. عطّل Confirm email أثناء الاختبار أو انتظر ساعة.',true);
+    else toast(message,true);
+  }finally{button.disabled=false;button.textContent=state.authMode==='register'?'إنشاء الحساب':'دخول'}
+}
+function switchAuthMode(mode){state.authMode=mode;const register=mode==='register';$('#usernameField').classList.toggle('hidden',!register);$('#authUsername').required=register;$('#authHeading').textContent=register?'إنشاء حساب':'تسجيل الدخول';$('#authSubtitle').textContent=register?'أنشئ حسابًا ثم اربط Hugging Face.':'ادخل إلى حسابك لإدارة سيرفراتك والصلاحيات المشتركة.';$('#authSubmit').textContent=register?'إنشاء الحساب':'دخول';$('#authSwitchText').textContent=register?'لديك حساب بالفعل؟':'ليس لديك حساب؟';$('#authSwitch').textContent=register?'تسجيل الدخول':'إنشاء حساب';$('#authPassword').autocomplete=register?'new-password':'current-password'}
+const provisionStepLabels={requested:'استلام الطلب',validating:'التحقق من البيانات والصلاحيات',creating_dataset:'إنشاء Private Dataset',creating_space:'إنشاء Private ZeroGPU Space',setting_hardware:'اختيار ZeroGPU',setting_variables:'ضبط متغيرات السيرفر',building:'بناء وتشغيل Space',running:'السيرفر جاهز',failed:'فشل الإنشاء'};
+function showCreateServer(){if(!state.siteSession)return toast('سجل الدخول أولًا',true);if(!state.token){toast('اربط Hugging Face بصلاحية إدارة المستودعات أولًا',true);beginLogin();return}$('#createServerError').textContent='';$('#createServerOverlay').classList.remove('hidden')}
+function hideCreateServer(){$('#createServerOverlay').classList.add('hidden')}
+function renderProvision(job){const progress=Number(job.progress||0);$('#provisionBar').style.width=progress+'%';$('#provisionPercent').textContent=progress+'%';$('#provisionTitle').textContent=job.state==='running'?'✅ تم إنشاء السيرفر':job.state==='failed'?'❌ فشل إنشاء السيرفر':'جارٍ إنشاء السيرفر...';$('#provisionMessage').textContent=job.error_message||job.hardware_warning||`${job.space_repo_id||''} — ${provisionStepLabels[job.step]||job.step}`;const order=['validating','creating_dataset','creating_space','setting_hardware','setting_variables','building','running'];const current=Math.max(0,order.indexOf(job.step));$('#provisionSteps').innerHTML=order.map((step,index)=>`<div class="provision-step ${job.state==='failed'&&index===current?'failed':index<current||job.state==='running'?'done':index===current?'active':''}">${index<current||job.state==='running'?'✅':index===current?'⏳':'○'} ${provisionStepLabels[step]}</div>`).join('');$('#closeProvision').classList.toggle('hidden',!['running','failed','cancelled'].includes(job.state))}
+async function functionError(error){try{const body=await error?.context?.json();const message=body?.error||body?.message||error.message;if(/Failed to send a request to the Edge Function/i.test(message))return 'دالة Supabase المطلوبة غير منشورة. شغّل Deploy Supabase Edge Functions من GitHub Actions.';return message}catch{const message=error?.message||String(error);return /Failed to send a request to the Edge Function/i.test(message)?'دالة Supabase المطلوبة غير منشورة. شغّل Deploy Supabase Edge Functions من GitHub Actions.':message}}
+async function pollProvision(jobId){clearInterval(state.provisionTimer);const check=async()=>{try{const{data,error}=await supabase.functions.invoke('provision-status',{body:{job_id:jobId}});if(error)throw new Error(await functionError(error));if(!data?.ok)throw new Error(data?.error||'تعذر قراءة حالة الإنشاء');renderProvision(data.job);if(['running','failed','cancelled'].includes(data.job.state)){clearInterval(state.provisionTimer);if(data.job.state==='running'){await loadSpaces();toast('تم إنشاء السيرفر بنجاح')}}}catch(e){clearInterval(state.provisionTimer);renderProvision({state:'failed',step:'failed',progress:100,error_message:e.message})}};await check();state.provisionTimer=setInterval(check,5000)}
+async function submitProvision(event){event.preventDefault();const button=$('#submitCreateServer');button.disabled=true;$('#createServerError').textContent='';try{const payload={display_name:$('#newServerDisplayName').value.trim(),space_name:$('#newServerSpaceName').value.trim().toLowerCase(),minecraft_version:$('#newServerVersion').value,max_players:Number($('#newServerMaxPlayers').value)};hideCreateServer();$('#provisionOverlay').classList.remove('hidden');renderProvision({state:'validating',step:'validating',progress:3,space_repo_id:payload.space_name});const{data,error}=await supabase.functions.invoke('provision-server',{body:payload});if(error)throw new Error(await functionError(error));if(!data?.ok)throw new Error(data?.error||'فشل إنشاء السيرفر');state.activeProvisionJob=data.job_id;await pollProvision(data.job_id)}catch(e){renderProvision({state:'failed',step:'failed',progress:100,error_message:e.message});toast(e.message,true)}finally{button.disabled=false}}
+
+async function loadSpaces(){
+  if(state.demo)return renderSpaces();
+  $('#spacesGrid').innerHTML='<div class="loading"><span class="spinner"></span></div>';
+  try{
+    let databaseServers=[];
+    if(supabase&&state.siteSession){
+      const {data,error}=await supabase.from('servers').select('*').order('created_at',{ascending:false});if(error)throw error;
+      databaseServers=data||[];
+      const {data:members}=await supabase.from('server_members').select('server_id,role').eq('user_id',state.siteSession.user.id);
+      const roles=new Map((members||[]).map(m=>[m.server_id,m.role]));
+      databaseServers=databaseServers.map(x=>({id:x.hf_space_id,title:x.name,sdk:'gradio',private:true,is_agent:true,source:x.owner_id===state.siteSession.user.id?'owned':'shared',role:x.owner_id===state.siteSession.user.id?'owner':roles.get(x.id)||'viewer',server_db_id:x.id,owner_id:x.owner_id,url:`https://huggingface.co/spaces/${x.hf_space_id}`}));
+    }
+    let hfSpaces=[];
+    if(state.token&&state.hfUser){
+      const username=profileName(state.hfUser);
+      const items=await jsonFetch(`https://huggingface.co/api/spaces?author=${encodeURIComponent(username)}&limit=100&full=true`);
+      hfSpaces=(Array.isArray(items)?items:[]).map(item=>{const card=item.cardData||{},tags=item.tags||card.tags||[];return{id:item.id,title:card.title||item.id.split('/').pop(),sdk:item.sdk,private:!!item.private,tags,is_agent:tags.includes('mc-panel-agent'),source:'owned',role:'owner',url:`https://huggingface.co/spaces/${item.id}`}});
+    }
+    const merged=new Map();databaseServers.forEach(x=>merged.set(x.id,x));hfSpaces.forEach(x=>merged.set(x.id,{...merged.get(x.id),...x,server_db_id:merged.get(x.id)?.server_db_id}));
+    state.spaces=[...merged.values()];renderSpaces();populateMemberServers();
+  }catch(e){$('#spacesGrid').innerHTML='<div class="empty">تعذر تحميل السيرفرات: '+esc(e.message)+'</div>'}
+}
+function renderSpaces(){
+  const g=$('#spacesGrid'),all=state.spaces||[];
+  $('#homeTotalServers').textContent=all.length;
+  $('#homeAgentReady').textContent=all.filter(s=>s.is_agent).length;
+  $('#homeSharedServers').textContent=all.filter(s=>s.source==='shared').length;
+  $('#homeHfState').textContent=state.hfUser?'Linked':'Offline';
+  const visible=all.map((server,index)=>({server,index})).filter(x=>state.spaceFilter==='shared'?x.server.source==='shared':true);
+  if(!visible.length){g.innerHTML=`<div class="empty"><div class="empty-block"></div><strong>${state.spaceFilter==='shared'?'لا توجد سيرفرات مشتركة معك':'لا توجد سيرفرات بعد'}</strong><p>${state.token?'أنشئ أول Minecraft Server أو غيّر الفلتر.':'اربط Hugging Face للبدء.'}</p><button class="btn primary empty-create">CREATE SERVER</button></div>`;g.querySelector('.empty-create').onclick=showCreateServer;return}
+  g.innerHTML=visible.map(({server:s,index:i})=>`<article class="space-card"><div class="space-top"><span class="space-icon"></span><span class="badge ${s.is_agent?'agent':''}">${s.source==='shared'?'مشترك · '+esc(s.role):s.is_agent?'Agent ready':(s.private?'Private':'Public')}</span></div><h3>${esc(s.title||s.id.split('/').pop())}</h3><div class="space-meta ltr">${esc(s.id)}</div><div class="mc-specs"><span>JAVA</span><span>BEDROCK</span><span>${s.is_agent?'AGENT READY':'SETUP'}</span></div><div class="space-actions"><button class="btn primary manage" data-index="${i}">MANAGE</button><a class="btn ghost" href="${esc(s.url||'#')}" target="_blank" rel="noopener">OPEN HF</a></div></article>`).join('');
+  $$('.manage').forEach(b=>b.onclick=()=>openServer(state.spaces[+b.dataset.index]));
+}
+async function ensureServerRecord(space){
+  if(space.server_db_id||state.demo)return space.server_db_id||'demo-server';
+  if(!supabase||!state.siteSession)throw new Error('قاعدة بيانات الموقع غير متصلة');
+  if(space.source==='shared')throw new Error('تعذر تحديد سجل السيرفر المشترك');
+  const {data,error}=await supabase.rpc('register_server',{p_name:space.title||space.id.split('/')[1],p_hf_space_id:space.id});if(error)throw error;
+  const record=Array.isArray(data)?data[0]:data;if(!record?.id)throw new Error('لم يرجع Supabase سجل السيرفر');
+  space.server_db_id=record.id;space.owner_id=record.owner_id;space.role='owner';return record.id;
+}
+async function connectGradio(spaceId){
+  const mod=await import('https://cdn.jsdelivr.net/npm/@gradio/client/+esm');
+  try{
+    // Current @gradio/client uses `token` for private Hugging Face Spaces.
+    // This is the user's short-lived OAuth token, not a hard-coded secret.
+    state.gradio=await mod.Client.connect(spaceId,{token:state.token});
+    return state.gradio;
+  }catch(error){
+    const message=String(error?.message||error);
+    if(message.includes('Login credentials are required')||message.includes('Not authenticated')){
+      throw new Error('الـ Space يستخدم Gradio Login داخلي. ارفع نسخة Agent بدون demo.launch(auth=...)');
+    }
+    throw error;
+  }
+}
+async function openServer(space){
+  state.selected=space;state.gradio=null;state.rawLogs='';
+  $('#serverContextNav').classList.remove('hidden');
+  showView('server');switchServerTab('console');$('#serverName').textContent=space.id;
+  $('#agentNotice').classList.toggle('hidden',space.is_agent);
+  setConnection('connecting','جارٍ الاتصال بالـ Agent...','CONNECTING');
+  setControls('connecting',false);renderLogs('[SYSTEM] جارٍ الاتصال بالـ Agent...');
+  if(state.demo){state.serverRecord={id:'demo-server',role:'owner'};$('#accessRole').textContent='OWNER';renderDemoServer()}
+  else{try{const id=await ensureServerRecord(space);state.serverRecord={id,role:space.role||'owner',owner_id:space.owner_id};$('#accessRole').textContent=(space.role||'owner').toUpperCase();await refreshServer()}catch(e){setConnection('offline','Agent غير متصل','OFFLINE');setControls('offline',false);renderLogs('[ERROR] '+e.message);toast('تعذر الاتصال: '+e.message,true)}}
+  clearInterval(state.poll);state.poll=setInterval(()=>{if(!document.hidden&&!$('#serverView').classList.contains('hidden'))refreshServer()},3000);
+}
+function setHealth(id,stateName,label){const el=$(id);if(!el)return;el.className='health '+stateName;el.textContent=label||stateName}
+function setConnection(kind,text,phase){const el=$('#serverLive');el.className='live '+kind;el.querySelector('span:nth-child(2)').textContent=text;$('#phaseBadge').textContent=phase||kind.toUpperCase();state.connected=kind==='connected';setHealth('#healthAgent',state.connected?'online':'offline',state.connected?'Online':'Offline')}
+function setControls(phase,connected=true){
+  state.phase=String(phase||'unknown').toLowerCase();
+  const buttons={};$$('.action').forEach(b=>buttons[b.dataset.action]=b);
+  const role=state.serverRecord?.role||'viewer';
+  const canOperate=['owner','admin','operator'].includes(role);
+  const canConsole=['owner','admin','operator'].includes(role);
+  const running=state.phase==='running',busy=['starting','stopping','restarting','preparing'].includes(state.phase);
+  buttons.start.disabled=!connected||!canOperate||running||busy;
+  buttons.stop.disabled=!connected||!canOperate||(!running&&state.phase!=='starting')||state.phase==='stopping';
+  buttons.restart.disabled=!connected||!canOperate||!running||busy;
+  $('#sendCommand').disabled=!connected||!canConsole||!running;
+  $('#commandInput').disabled=!connected||!canConsole||!running;
+  $('#commandInput').placeholder=canConsole?'اكتب أمرًا مثل list':'دورك يسمح بالمشاهدة فقط';
+}
+function logLevel(line){const u=line.toUpperCase();if(u.includes('ERROR')||u.includes('FATAL')||u.includes('EXCEPTION'))return'error';if(u.includes('WARN')||u.includes("CAN'T KEEP UP"))return'warn';if(/JOINED THE GAME/i.test(line))return'join';if(/LEFT THE GAME/i.test(line))return'leave';if(u.includes('[CMD]')||u.includes('[AUDIT]')||u.includes('SENT CONSOLE COMMAND'))return'command';if(u.includes('[SYSTEM]')||u.includes('[SETUP]'))return'system';return'info'}
+function highlighted(line,q){if(!q)return esc(line);const low=line.toLowerCase(),needle=q.toLowerCase(),i=low.indexOf(needle);if(i<0)return esc(line);return esc(line.slice(0,i))+'<mark class="log-match">'+esc(line.slice(i,i+q.length))+'</mark>'+esc(line.slice(i+q.length))}
+function updateNetworkFromLogs(text){const java=String(text||'').match(/found minecraft java tunnel:\s*([a-z0-9.-]+(?::\d+)?)/i);if(java){$('#javaAddress').textContent=java[1];setHealth('#healthJava','online','Online')}const bedrock=String(text||'').match(/(?:bedrock|udp)[^\n]*?([a-z0-9.-]+:\d+)/i);if(bedrock){$('#bedrockAddress').textContent=bedrock[1];setHealth('#healthBedrock','online','Online')}}
+function renderLogs(text){
+  const box=$('#console'),wasBottom=box.scrollHeight-box.scrollTop-box.clientHeight<45,oldCount=(state.rawLogs||'').split('\n').length;
+  if(text!==undefined){state.rawLogs=String(text||'');updateNetworkFromLogs(state.rawLogs)}
+  const q=$('#logSearch')?.value.trim()||'';
+  const lines=state.rawLogs.split('\n');
+  const shown=lines.filter(line=>{const level=logLevel(line);const filter=state.logFilter;const levelOk=filter==='all'||filter===level||(filter==='info'&&['join','leave','command','system'].includes(level));return levelOk&&(!q||line.toLowerCase().includes(q.toLowerCase()))});
+  box.innerHTML=shown.map(line=>`<span class="log-line log-${logLevel(line)}">${highlighted(line,q)}</span>`).join('')||'<span class="log-line log-system">لا توجد نتائج مطابقة.</span>';
+  const added=Math.max(0,lines.length-oldCount);if(wasBottom||!text){box.scrollTop=box.scrollHeight;$('#newLogs').classList.add('hidden')}else if(added){$('#newLogs').textContent=`↓ ${added} رسائل جديدة`;$('#newLogs').classList.remove('hidden')}
+}
+function renderDemoServer(){$('#spaceStage').textContent='RUNNING';$('#hardware').textContent='cpu-basic';$('#mcStatus').textContent='Running';$('#players').textContent='3';$('#memory').textContent='1.4 GB';setConnection('connected','Agent متصل','RUNNING');setControls('running',true);renderLogs('[SYSTEM] Purpur 1.21.1 ready\n[Server thread/INFO]: Done (8.421s)!\n[Server thread/INFO]: Steve joined the game\n[Server thread/WARN]: Sample warning\n[Server thread/ERROR]: Sample error for console colors')}
+async function agent(action,payload){
+  const details=payload&&typeof payload==='object'?payload:{command:payload||null};
+  if(state.demo){if(['start','stop','restart','command','file_write'].includes(action)){addActivity(action);return{result:action==='stop'?'stopped':action==='file_write'?{ok:true,backup:'demo.bak'}:'Demo action completed'}}if(action==='file_list')return{result:{path:details.path||'',folders:[{name:'plugins'},{name:'world'}],files:[{name:'server.properties',size:245,binary:false},{name:'paper.jar',size:48000000,binary:true}]}};if(action==='file_read')return{result:{path:details.path,name:'server.properties',size:245,content:'online-mode=true\nmax-players=20\nmotd=MC Control Cloud'}};return{result:action==='status'?{status:state.phase==='offline'?'running':state.phase}:action==='logs'?state.rawLogs:action==='resources'?{memory:'1.4 GB'}:action==='players'?['Steve','Alex','NoobMaster']:null}}
+  // Multi-user path: Edge Function validates the site JWT and server role,
+  // then calls the Agent with the owner's server-side HF connection.
+  if(supabase&&state.serverRecord?.id){
+    const {data,error}=await supabase.functions.invoke('agent-command',{body:{server_id:state.serverRecord.id,action,...details}});
+    if(error)throw error;if(!data?.ok)throw new Error(data?.error||'Agent command failed');return{result:data.result};
+  }
+  // Compatibility fallback for demo/owner-only installations.
+  if(!state.gradio)await connectGradio(state.selected.id);
+  const input=action==='command'?{command:details.command}:action==='file_list'?{relative_path:details.path||''}:action==='file_read'?{relative_path:details.path||''}:action==='file_write'?{relative_path:details.path||'',content:details.content||''}:{};
+  const response=await state.gradio.predict(AGENT_APIS[action],input);
+  return{result:Array.isArray(response.data)&&response.data.length===1?response.data[0]:response.data};
+}
+async function refreshServer(){
+  if(!state.selected||document.hidden)return;if(state.demo)return renderDemoServer();
+  try{
+    const [status,logs,res,players]=await Promise.all([agent('status'),agent('logs'),agent('resources'),agent('players')]);
+    const sv=status.result||{},phase=String(typeof sv==='string'?sv:(sv.status||'running')).toLowerCase();
+    $('#spaceStage').textContent='RUNNING';$('#hardware').textContent='Hugging Face Space';$('#mcStatus').textContent=phase.charAt(0).toUpperCase()+phase.slice(1);setHealth('#healthSpace','online','Running');setHealth('#healthMinecraft',phase==='running'?'online':phase==='starting'?'starting':'unknown',phase);
+    const logText=typeof logs.result==='string'?logs.result:JSON.stringify(logs.result,null,2);renderLogs(logText);
+    const rr=res.result||{};$('#memory').textContent=rr.memory||rr.ram||'—';const pp=players.result||[];$('#players').textContent=Array.isArray(pp)?pp.length:(pp.count??pp);
+    setConnection('connected','Agent متصل',phase.toUpperCase());setControls(phase,true);
+  }catch(e){setConnection('offline','Agent غير متصل','OFFLINE');setControls('offline',false);setHealth('#healthMinecraft','unknown','Unknown');console.warn(e)}
+}
+function askConfirmation(action){return new Promise(resolve=>{const restart=action==='restart';$('#confirmTitle').textContent=restart?'إعادة تشغيل السيرفر':'إيقاف السيرفر';$('#confirmText').textContent=restart?'سيتم حفظ العالم وفصل اللاعبين ثم تشغيل السيرفر من جديد. هل تريد المتابعة؟':'سيتم تنفيذ save-all flush ثم إيقاف السيرفر وفصل اللاعبين. هل تريد المتابعة؟';$('#confirmYes').textContent=restart?'إعادة التشغيل':'إيقاف السيرفر';$('#confirmOverlay').classList.remove('hidden');const finish=value=>{$('#confirmOverlay').classList.add('hidden');$('#confirmYes').onclick=null;$('#confirmNo').onclick=null;resolve(value)};$('#confirmYes').onclick=()=>finish(true);$('#confirmNo').onclick=()=>finish(false)})}
+async function runAction(button){const action=button.dataset.action;if(['stop','restart'].includes(action)&&!await askConfirmation(action))return;button.disabled=true;const old=button.textContent;button.textContent='⏳ جارٍ التنفيذ...';try{const next=action==='start'?'starting':action==='stop'?'stopping':'restarting';setControls(next,true);$('#phaseBadge').textContent=next.toUpperCase();const result=await agent(action);toast(typeof result.result==='string'?result.result:'تم إرسال الأمر');addActivity(action);setTimeout(refreshServer,1000)}catch(e){toast(e.message,true);setControls(state.phase,state.connected)}finally{button.textContent=old}}
+function switchServerTab(name){$$('.server-tab').forEach(b=>b.classList.toggle('active',b.dataset.serverTab===name));$$('.server-tab-page').forEach(p=>p.classList.toggle('hidden',p.id!==`serverTab-${name}`));if(name==='files')loadCloudFiles(state.filePath);if(name==='players')loadDetailedPlayers();if(name==='info')renderServerInfo()}
+function joinRemotePath(base,name){return [base,name].filter(Boolean).join('/').replace(/\/+/g,'/')}
+async function loadCloudFiles(path=''){if(!state.serverRecord)return;state.filePath=String(path||'').replace(/^\/+|\/+$/g,'');$('#filePath').textContent='/root'+(state.filePath?'/'+state.filePath:'');$('#cloudFolders').innerHTML='<span class="spinner"></span>';$('#cloudFiles').innerHTML='';try{const {result}=await agent('file_list',{path:state.filePath}),data=result||{};$('#cloudFolders').innerHTML=(data.folders||[]).map(x=>`<button class="cloud-file-item cloud-folder" data-name="${esc(x.name)}"><span>📁 ${esc(x.name)}</span><span>›</span></button>`).join('')||'<span class="muted">لا توجد مجلدات</span>';$('#cloudFiles').innerHTML=(data.files||[]).map(x=>`<button class="cloud-file-item cloud-file ${x.binary?'binary':''}" data-name="${esc(x.name)}" data-binary="${!!x.binary}"><span>${x.binary?'📦':'📄'} ${esc(x.name)}</span><small>${formatBytes(x.size)}</small></button>`).join('')||'<span class="muted">لا توجد ملفات</span>';$$('.cloud-folder').forEach(b=>b.onclick=()=>loadCloudFiles(joinRemotePath(state.filePath,b.dataset.name)));$$('.cloud-file').forEach(b=>b.onclick=()=>openCloudFile(b.dataset.name,b.dataset.binary==='true'))}catch(e){$('#cloudFolders').innerHTML='<span class="log-error">'+esc(e.message)+'</span>'}}
+function formatBytes(n=0){if(n<1024)return n+' B';if(n<1024**2)return(n/1024).toFixed(1)+' KB';return(n/1024**2).toFixed(1)+' MB'}
+async function openCloudFile(name,binary){if(binary)return toast('الملف ثنائي ولا يمكن فتحه كمحتوى نصي',true);const path=joinRemotePath(state.filePath,name);$('#cloudFileTitle').textContent='جارٍ تحميل '+name;try{const {result}=await agent('file_read',{path}),data=result||{};state.selectedFile=path;$('#cloudFileTitle').textContent=data.name||name;$('#cloudFileEditor').value=data.content||'';const canWrite=['owner','admin','editor'].includes(state.serverRecord?.role);$('#cloudFileEditor').disabled=!canWrite;$('#saveCloudFile').disabled=!canWrite;$('#cloudFileStatus').textContent=canWrite?`${formatBytes(data.size)} · سيتم إنشاء .bak عند الحفظ`:'وضع القراءة فقط حسب صلاحيتك';$$('.cloud-file').forEach(x=>x.classList.toggle('active',x.dataset.name===name))}catch(e){toast(e.message,true);$('#cloudFileTitle').textContent='تعذر فتح الملف'}}
+async function saveCloudFile(){if(!state.selectedFile)return;const btn=$('#saveCloudFile');btn.disabled=true;btn.textContent='⏳ جارٍ الحفظ...';try{const {result}=await agent('file_write',{path:state.selectedFile,content:$('#cloudFileEditor').value});$('#cloudFileStatus').textContent='تم الحفظ · النسخة الاحتياطية: '+(result?.backup||'.bak');toast('تم حفظ الملف مع نسخة احتياطية')}catch(e){toast(e.message,true)}finally{btn.textContent='💾 حفظ مع نسخة احتياطية';btn.disabled=!['owner','admin','editor'].includes(state.serverRecord?.role)}}
+async function loadDetailedPlayers(){try{const {result}=await agent('players'),list=Array.isArray(result)?result:(result?.players||[]);$('#playersDetailed').innerHTML=list.length?list.map(name=>`<div class="player-card"><span class="avatar" style="display:grid;place-items:center">👤</span><strong>${esc(name)}</strong></div>`).join(''):'<span class="muted">لا يوجد لاعبون متصلون.</span>'}catch(e){$('#playersDetailed').innerHTML='<span class="log-error">'+esc(e.message)+'</span>'}}
+function renderServerInfo(){const items=[['Space',state.selected?.id||'—'],['دورك',state.serverRecord?.role||'—'],['حالة Agent',state.connected?'متصل':'غير متصل'],['Minecraft',state.phase],['واجهة API','MC Agent v2.1'],['المسار الحالي','/root/'+(state.filePath||'')]];$('#serverInfoDetails').innerHTML=items.map(x=>`<div class="info-item"><label>${esc(x[0])}</label><strong>${esc(x[1])}</strong></div>`).join('')}
+function populateMemberServers(){const select=$('#memberServer');if(!select)return;const owners=state.spaces.filter(s=>s.role==='owner'&&s.server_db_id);select.innerHTML=owners.length?owners.map(s=>`<option value="${esc(s.server_db_id)}">${esc(s.title||s.id)} — ${esc(s.id)}</option>`).join(''):'<option value="">افتح سيرفرًا تملكه أولًا لتسجيله</option>';if(select.value)loadMembers()}
+async function loadMembers(){const serverId=$('#memberServer').value;if(!serverId||!supabase){$('#membersList').innerHTML='<span class="muted">اختر سيرفرًا مسجلًا.</span>';return}$('#membersList').innerHTML='<span class="spinner"></span>';const {data,error}=await supabase.from('server_members').select('user_id,role,profiles!server_members_user_id_fkey(username,display_name)').eq('server_id',serverId);if(error){$('#membersList').textContent=error.message;return}const roles={admin:'مدير',operator:'مشغل',editor:'محرر',viewer:'مشاهد'};$('#membersList').innerHTML=(data||[]).length?(data||[]).map(m=>`<div class="member-row"><div class="member-id"><span class="avatar" style="display:grid;place-items:center">👤</span><div><strong>${esc(m.profiles?.username||m.user_id)}</strong><small class="muted" style="display:block">${esc(m.profiles?.display_name||'')}</small></div></div><div><span class="role-chip">${roles[m.role]||esc(m.role)}</span><button class="danger-link revoke-member" data-user="${esc(m.user_id)}">إزالة</button></div></div>`).join(''):'<span class="muted">لا يوجد أعضاء. المالك يمتلك الصلاحية الكاملة تلقائيًا.</span>';$$('.revoke-member').forEach(b=>b.onclick=()=>revokeMember(serverId,b.dataset.user))}
+async function grantMember(){const serverId=$('#memberServer').value,username=$('#memberUsername').value.trim().toLowerCase(),role=$('#memberRole').value;if(!serverId||!username)return toast('اختر السيرفر واكتب اسم المستخدم',true);const btn=$('#grantMember');btn.disabled=true;try{const {error}=await supabase.rpc('grant_server_access',{p_server:serverId,p_username:username,p_role:role});if(error)throw error;$('#memberUsername').value='';$('#memberResult').textContent='تم حفظ الصلاحية';toast('تم منح الصلاحية للمستخدم');await loadMembers()}catch(e){toast(e.message,true);$('#memberResult').textContent=e.message}finally{btn.disabled=false}}
+async function revokeMember(serverId,userId){if(!confirm('هل تريد إزالة صلاحية هذا المستخدم؟'))return;const {error}=await supabase.rpc('revoke_server_access',{p_server:serverId,p_user:userId});if(error)return toast(error.message,true);toast('تمت إزالة الصلاحية');loadMembers()}
+async function loadAudit(){if(state.demo){renderLocalAudit();return}if(!supabase)return;$('#activityList').innerHTML='<span class="spinner"></span>';const {data,error}=await supabase.from('audit_logs').select('action,details,created_at,profiles!audit_logs_user_id_fkey(username),servers(name,hf_space_id)').order('created_at',{ascending:false}).limit(100);if(error){$('#activityList').textContent=error.message;return}$('#activityList').innerHTML=(data||[]).length?(data||[]).map(x=>`<div class="audit-row"><span class="muted">${new Date(x.created_at).toLocaleString('ar-EG')}</span><span><strong>${esc(x.profiles?.username||'system')}</strong> · ${esc(x.servers?.name||x.servers?.hf_space_id||'server')}</span><span class="audit-action">${esc(x.action)}</span></div>`).join(''):'<span class="muted">لا يوجد نشاط مسجل.</span>'}
+function renderLocalAudit(){$('#activityList').innerHTML=state.activity.length?state.activity.map(x=>'<div style="padding:10px;border-bottom:1px solid var(--line)">'+esc(x)+'</div>').join(''):'<span class="muted">لا توجد عمليات بعد.</span>'}
+function loadSettingsView(){if(!state.profile)return;$('#settingsUsername').value=state.profile.username||'';$('#settingsDisplayName').value=state.profile.display_name||'';$('#hfSettingsStatus').textContent=state.hfUser?'مرتبط بالحساب: '+profileName(state.hfUser):'حساب Hugging Face غير مرتبط';$('#hfSettingsStatus').style.color=state.hfUser?'var(--green)':'var(--amber)'}
+function showView(name){['spaces','server','members','activity','settings'].forEach(v=>$('#'+v+'View').classList.toggle('hidden',v!==name));$$('.nav').forEach(n=>n.classList.toggle('active',n.dataset.view===name));if(name==='members'){populateMemberServers();loadMembers()}if(name==='activity')loadAudit();if(name==='settings')loadSettingsView()}
+function addActivity(action){state.activity.unshift(new Date().toLocaleTimeString('ar-EG')+' — '+action+' — '+(state.selected?.id||''));if(!$('#activityView').classList.contains('hidden'))loadAudit()}
+async function saveProfileSettings(){const display=$('#settingsDisplayName').value.trim();const btn=$('#saveProfile');btn.disabled=true;try{const {data,error}=await supabase.from('profiles').update({display_name:display,updated_at:new Date().toISOString()}).eq('id',state.siteSession.user.id).select().single();if(error)throw error;state.profile=data;toast('تم حفظ الملف الشخصي')}catch(e){toast(e.message,true)}finally{btn.disabled=false}}
+async function changeSitePassword(){const password=$('#newPassword').value;if(password.length<8)return toast('كلمة المرور يجب ألا تقل عن 8 أحرف',true);const btn=$('#changePassword');btn.disabled=true;try{const {error}=await supabase.auth.updateUser({password});if(error)throw error;$('#newPassword').value='';toast('تم تغيير كلمة المرور')}catch(e){toast(e.message,true)}finally{btn.disabled=false}}
+async function disconnectHuggingFace(){if(!confirm('سيتم إيقاف التحكم المشترك حتى تعيد ربط Hugging Face. هل تريد المتابعة؟'))return;try{const {data,error}=await supabase.functions.invoke('unlink-huggingface');if(error)throw error;if(data&&!data.ok)throw new Error(data.error);sessionStorage.removeItem('hf_access_token');sessionStorage.removeItem('hf_token_expires');state.token=null;state.hfUser=null;updateHfButton();loadSettingsView();loadSpaces();toast('تم فصل Hugging Face')}catch(e){toast(e.message,true)}}
+$$('.nav[data-view]').forEach(n=>n.onclick=()=>showView(n.dataset.view));
+$('#navAllServers').onclick=()=>{state.spaceFilter='all';showView('spaces');renderSpaces()};
+$('#navCreateServer').onclick=showCreateServer;
+$('#navSharedServers').onclick=()=>{state.spaceFilter='shared';showView('spaces');renderSpaces();$$('.nav').forEach(n=>n.classList.remove('active'));$('#navSharedServers').classList.add('active')};
+$$('.server-nav').forEach(n=>n.onclick=()=>{if(!state.selected)return toast('اختر سيرفرًا أولًا',true);showView('server');switchServerTab(n.dataset.serverPage);$$('.nav').forEach(x=>x.classList.remove('active'));n.classList.add('active')});
+$('#backSpaces').onclick=()=>{state.spaceFilter='all';showView('spaces');renderSpaces()};$('#refreshSpaces').onclick=loadSpaces;
+$('#accountMenuBtn').onclick=e=>{e.stopPropagation();$('#accountMenu').classList.toggle('hidden')};
+$('#accountSettingsBtn').onclick=()=>{showView('settings');$('#accountMenu').classList.add('hidden')};
+$('#globalSearchBtn').onclick=()=>toast('Global search سيتم تفعيله مع البحث في السيرفرات واللاعبين');
+$('#notificationsBtn').onclick=()=>toast('لا توجد إشعارات جديدة');
+document.addEventListener('click',e=>{if(!e.target.closest('.account-menu-wrap'))$('#accountMenu').classList.add('hidden')});
+$$('.copy-address').forEach(b=>b.onclick=async()=>{const value=$('#'+b.dataset.copyTarget).textContent;if(/Waiting|not detected/i.test(value))return toast('العنوان غير متاح بعد',true);await navigator.clipboard.writeText(value);const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1500)});
+$('#testConnections').onclick=async()=>{toast('جارٍ تحديث حالة الاتصال...');await refreshServer()};
+$$('.action').forEach(b=>b.onclick=()=>runAction(b));
+$('#sendCommand').onclick=async()=>{const i=$('#commandInput'),v=i.value.trim().replace(/^\//,'');if(!v||i.disabled)return;const btn=$('#sendCommand');btn.disabled=true;$('#commandResult').textContent='جارٍ الإرسال...';try{const result=await agent('command',v);state.cmdHistory=state.cmdHistory.filter(x=>x!==v).slice(-48);state.cmdHistory.push(v);state.cmdIndex=state.cmdHistory.length;sessionStorage.setItem('mc_cmd_history',JSON.stringify(state.cmdHistory));addActivity('command: '+v);i.value='';$('#commandResult').textContent=typeof result.result==='string'?result.result:'تم الإرسال';toast('تم إرسال الأمر')}catch(e){toast(e.message,true);$('#commandResult').textContent=e.message}finally{btn.disabled=!state.connected||state.phase!=='running'}};
+$('#commandInput').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();$('#sendCommand').click()}else if(e.key==='ArrowUp'){e.preventDefault();if(state.cmdIndex>0)e.target.value=state.cmdHistory[--state.cmdIndex]||''}else if(e.key==='ArrowDown'){e.preventDefault();if(state.cmdIndex<state.cmdHistory.length-1)e.target.value=state.cmdHistory[++state.cmdIndex]||'';else{state.cmdIndex=state.cmdHistory.length;e.target.value=''}}};
+$('#quickCommand').onchange=e=>{if(e.target.value){$('#commandInput').value=e.target.value;$('#commandInput').focus();e.target.value=''}};
+$$('.level-filter').forEach(b=>b.onclick=()=>{$$('.level-filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.logFilter=b.dataset.level;renderLogs()});
+$('#logSearch').oninput=()=>renderLogs();$('#wrapLogs').onclick=e=>{const nowrap=$('#console').classList.toggle('nowrap');e.currentTarget.classList.toggle('active',!nowrap)};
+$('#clearLogs').onclick=()=>{state.rawLogs='';renderLogs()};$('#copyLogs').onclick=async()=>{await navigator.clipboard.writeText(state.rawLogs);toast('تم نسخ السجل')};
+$('#downloadLogs').onclick=()=>{const blob=new Blob([state.rawLogs],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${(state.selected?.id||'server').replace('/','-')}-console.log`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+$('#newLogs').onclick=()=>{$('#console').scrollTop=$('#console').scrollHeight;$('#newLogs').classList.add('hidden')};
+$('#confirmOverlay').onclick=e=>{if(e.target===$('#confirmOverlay'))$('#confirmNo').click()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#confirmOverlay').classList.contains('hidden'))$('#confirmNo').click()});
+$$('.server-tab').forEach(b=>b.onclick=()=>switchServerTab(b.dataset.serverTab));
+$('#fileUp').onclick=()=>{const parts=state.filePath.split('/').filter(Boolean);parts.pop();state.selectedFile='';loadCloudFiles(parts.join('/'))};
+$('#fileRefresh').onclick=()=>loadCloudFiles(state.filePath);
+$('#saveCloudFile').onclick=saveCloudFile;
+$('#saveWorldNow').onclick=async()=>{try{await agent('command','save-all flush');toast('تم حفظ العالم بالكامل')}catch(e){toast(e.message,true)}};
+$('#createServerBtn').onclick=showCreateServer;
+$('#closeCreateServer').onclick=hideCreateServer;
+$('#createServerOverlay').onclick=e=>{if(e.target===$('#createServerOverlay'))hideCreateServer()};
+$('#createServerForm').addEventListener('submit',submitProvision);
+$('#closeProvision').onclick=()=>{$('#provisionOverlay').classList.add('hidden');clearInterval(state.provisionTimer)};
+$('#authForm').addEventListener('submit',handleSiteAuth);
+$('#authSwitch').onclick=()=>switchAuthMode(state.authMode==='login'?'register':'login');
+$('#grantMember').onclick=grantMember;
+$('#memberServer').onchange=loadMembers;
+$('#saveProfile').onclick=saveProfileSettings;
+$('#changePassword').onclick=changeSitePassword;
+$('#reconnectHf').onclick=beginLogin;
+$('#disconnectHf').onclick=disconnectHuggingFace;
+$('#logoutBtn').onclick=logout;
+boot();
+</script>
+</body>
+</html>

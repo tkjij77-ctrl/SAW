@@ -1,0 +1,23 @@
+# Frontend build output and dependencies
+frontend-v2/node_modules/
+frontend-v2/dist/
+frontend-v2/*.tsbuildinfo
+
+# Python caches and local runtime data
+__pycache__/
+*.py[cod]
+/server/
+/backups/
+/logs/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.vscode/
+.idea/
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/

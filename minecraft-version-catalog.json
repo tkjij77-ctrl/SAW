@@ -1,0 +1,1080 @@
+{
+  "catalog_version": 1,
+  "generated_at": "2026-07-15",
+  "latest_release": "26.2",
+  "counts": {
+    "mojang_releases": 102,
+    "purpur_versions": 40
+  },
+  "notes": [
+    "Values are release IDs from Mojang version_manifest_v2.",
+    "Purpur availability is from the live Purpur v2 API.",
+    "Full crossplay still requires per-profile integration tests.",
+    "Versions below 1.20.5 require standalone Geyser/Via proxy for Bedrock.",
+    "Ancient releases are listed but not guaranteed with modern authentication or crossplay."
+  ],
+  "purpur_versions": [
+    "1.14.1",
+    "1.14.2",
+    "1.14.3",
+    "1.14.4",
+    "1.15",
+    "1.15.1",
+    "1.15.2",
+    "1.16.1",
+    "1.16.2",
+    "1.16.3",
+    "1.16.4",
+    "1.16.5",
+    "1.17",
+    "1.17.1",
+    "1.18",
+    "1.18.1",
+    "1.18.2",
+    "1.19",
+    "1.19.1",
+    "1.19.2",
+    "1.19.3",
+    "1.19.4",
+    "1.20",
+    "1.20.1",
+    "1.20.2",
+    "1.20.4",
+    "1.20.6",
+    "1.21",
+    "1.21.1",
+    "1.21.3",
+    "1.21.4",
+    "1.21.5",
+    "1.21.6",
+    "1.21.7",
+    "1.21.8",
+    "1.21.9",
+    "1.21.10",
+    "1.21.11",
+    "26.1.2",
+    "26.2"
+  ],
+  "versions": [
+    {
+      "id": "26.2",
+      "java_major": 25,
+      "java_declared_by_mojang": 25,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2026-06-16T12:03:33+00:00"
+    },
+    {
+      "id": "26.1.2",
+      "java_major": 25,
+      "java_declared_by_mojang": 25,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2026-04-09T10:12:23+00:00"
+    },
+    {
+      "id": "26.1.1",
+      "java_major": 25,
+      "java_declared_by_mojang": 25,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2026-04-01T09:06:36+00:00"
+    },
+    {
+      "id": "26.1",
+      "java_major": 25,
+      "java_declared_by_mojang": 25,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2026-03-24T12:11:04+00:00"
+    },
+    {
+      "id": "1.21.11",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-12-09T12:23:30+00:00"
+    },
+    {
+      "id": "1.21.10",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-10-07T09:17:23+00:00"
+    },
+    {
+      "id": "1.21.9",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-09-30T11:58:43+00:00"
+    },
+    {
+      "id": "1.21.8",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-07-17T12:04:02+00:00"
+    },
+    {
+      "id": "1.21.7",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-06-30T09:32:16+00:00"
+    },
+    {
+      "id": "1.21.6",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-06-17T11:10:28+00:00"
+    },
+    {
+      "id": "1.21.5",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2025-03-25T12:14:58+00:00"
+    },
+    {
+      "id": "1.21.4",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-12-03T10:12:57+00:00"
+    },
+    {
+      "id": "1.21.3",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-10-23T12:28:15+00:00"
+    },
+    {
+      "id": "1.21.2",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-10-22T09:58:55+00:00"
+    },
+    {
+      "id": "1.21.1",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-08-08T12:24:45+00:00"
+    },
+    {
+      "id": "1.21",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-06-13T08:24:03+00:00"
+    },
+    {
+      "id": "1.20.6",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-04-29T12:40:45+00:00"
+    },
+    {
+      "id": "1.20.5",
+      "java_major": 21,
+      "java_declared_by_mojang": 21,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-spigot",
+      "support_tier": "full-crossplay-candidate",
+      "release_time": "2024-04-23T11:54:12+00:00"
+    },
+    {
+      "id": "1.20.4",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-12-07T12:56:20+00:00"
+    },
+    {
+      "id": "1.20.3",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-12-04T12:10:32+00:00"
+    },
+    {
+      "id": "1.20.2",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-09-20T09:02:57+00:00"
+    },
+    {
+      "id": "1.20.1",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-06-12T13:25:51+00:00"
+    },
+    {
+      "id": "1.20",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-06-02T08:36:17+00:00"
+    },
+    {
+      "id": "1.19.4",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2023-03-14T12:56:18+00:00"
+    },
+    {
+      "id": "1.19.3",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2022-12-07T08:17:18+00:00"
+    },
+    {
+      "id": "1.19.2",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2022-08-05T11:57:05+00:00"
+    },
+    {
+      "id": "1.19.1",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2022-07-27T09:25:33+00:00"
+    },
+    {
+      "id": "1.19",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2022-06-07T09:42:18+00:00"
+    },
+    {
+      "id": "1.18.2",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2022-02-28T10:42:45+00:00"
+    },
+    {
+      "id": "1.18.1",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2021-12-10T08:23:00+00:00"
+    },
+    {
+      "id": "1.18",
+      "java_major": 17,
+      "java_declared_by_mojang": 17,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2021-11-30T09:16:29+00:00"
+    },
+    {
+      "id": "1.17.1",
+      "java_major": 16,
+      "java_declared_by_mojang": 16,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2021-07-06T12:01:34+00:00"
+    },
+    {
+      "id": "1.17",
+      "java_major": 16,
+      "java_declared_by_mojang": 16,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2021-06-08T11:00:40+00:00"
+    },
+    {
+      "id": "1.16.5",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2021-01-14T16:05:32+00:00"
+    },
+    {
+      "id": "1.16.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-10-29T15:49:37+00:00"
+    },
+    {
+      "id": "1.16.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-09-10T13:42:37+00:00"
+    },
+    {
+      "id": "1.16.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-08-11T10:13:46+00:00"
+    },
+    {
+      "id": "1.16.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-06-24T10:31:40+00:00"
+    },
+    {
+      "id": "1.16",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-06-23T16:20:52+00:00"
+    },
+    {
+      "id": "1.15.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2020-01-17T10:03:52+00:00"
+    },
+    {
+      "id": "1.15.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-12-16T10:29:47+00:00"
+    },
+    {
+      "id": "1.15",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-12-09T13:13:38+00:00"
+    },
+    {
+      "id": "1.14.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-07-19T09:25:47+00:00"
+    },
+    {
+      "id": "1.14.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-06-24T12:52:52+00:00"
+    },
+    {
+      "id": "1.14.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-05-27T11:48:25+00:00"
+    },
+    {
+      "id": "1.14.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "purpur",
+      "download_source": "purpur-api",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-05-13T11:10:12+00:00"
+    },
+    {
+      "id": "1.14",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2019-04-23T14:52:44+00:00"
+    },
+    {
+      "id": "1.13.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2018-10-22T11:41:07+00:00"
+    },
+    {
+      "id": "1.13.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2018-08-22T14:03:42+00:00"
+    },
+    {
+      "id": "1.13",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2018-07-18T15:11:46+00:00"
+    },
+    {
+      "id": "1.12.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2017-09-18T08:39:46+00:00"
+    },
+    {
+      "id": "1.12.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2017-08-03T12:40:39+00:00"
+    },
+    {
+      "id": "1.12",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2017-06-02T13:50:27+00:00"
+    },
+    {
+      "id": "1.11.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-12-21T09:29:12+00:00"
+    },
+    {
+      "id": "1.11.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-12-20T14:05:34+00:00"
+    },
+    {
+      "id": "1.11",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-11-14T14:34:40+00:00"
+    },
+    {
+      "id": "1.10.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-06-23T09:17:32+00:00"
+    },
+    {
+      "id": "1.10.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-06-22T10:13:22+00:00"
+    },
+    {
+      "id": "1.10",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-06-08T13:06:18+00:00"
+    },
+    {
+      "id": "1.9.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-05-10T10:17:16+00:00"
+    },
+    {
+      "id": "1.9.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-05-10T08:33:35+00:00"
+    },
+    {
+      "id": "1.9.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-03-30T15:23:55+00:00"
+    },
+    {
+      "id": "1.9.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-03-30T13:43:07+00:00"
+    },
+    {
+      "id": "1.9",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2016-02-29T13:49:54+00:00"
+    },
+    {
+      "id": "1.8.9",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-12-03T09:24:39+00:00"
+    },
+    {
+      "id": "1.8.8",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-07-27T10:31:28+00:00"
+    },
+    {
+      "id": "1.8.7",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-06-05T10:10:44+00:00"
+    },
+    {
+      "id": "1.8.6",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-05-25T10:31:19+00:00"
+    },
+    {
+      "id": "1.8.5",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-05-22T11:15:28+00:00"
+    },
+    {
+      "id": "1.8.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-04-17T11:37:50+00:00"
+    },
+    {
+      "id": "1.8.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-02-20T14:00:09+00:00"
+    },
+    {
+      "id": "1.8.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2015-02-19T15:47:29+00:00"
+    },
+    {
+      "id": "1.8.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2014-11-24T14:13:31+00:00"
+    },
+    {
+      "id": "1.8",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "geyser-standalone-via-proxy",
+      "support_tier": "legacy-proxy-experimental",
+      "release_time": "2014-09-02T08:24:35+00:00"
+    },
+    {
+      "id": "1.7.10",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-05-14T17:29:23+00:00"
+    },
+    {
+      "id": "1.7.9",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-04-14T13:29:23+00:00"
+    },
+    {
+      "id": "1.7.8",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-04-09T07:58:16+00:00"
+    },
+    {
+      "id": "1.7.7",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-04-09T07:52:16+00:00"
+    },
+    {
+      "id": "1.7.6",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-04-09T07:52:06+00:00"
+    },
+    {
+      "id": "1.7.5",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2014-02-26T09:22:17+00:00"
+    },
+    {
+      "id": "1.7.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-12-09T12:28:10+00:00"
+    },
+    {
+      "id": "1.7.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-12-06T13:55:34+00:00"
+    },
+    {
+      "id": "1.7.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-10-25T13:00:00+00:00"
+    },
+    {
+      "id": "1.6.4",
+      "java_major": 8,
+      "java_declared_by_mojang": null,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-09-19T15:52:37+00:00"
+    },
+    {
+      "id": "1.6.2",
+      "java_major": 8,
+      "java_declared_by_mojang": null,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-07-05T13:09:02+00:00"
+    },
+    {
+      "id": "1.6.1",
+      "java_major": 8,
+      "java_declared_by_mojang": null,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-06-28T14:48:41+00:00"
+    },
+    {
+      "id": "1.5.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-04-25T15:45:00+00:00"
+    },
+    {
+      "id": "1.5.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2013-03-20T10:00:00+00:00"
+    },
+    {
+      "id": "1.4.7",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-12-27T22:00:00+00:00"
+    },
+    {
+      "id": "1.4.5",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-12-19T22:00:00+00:00"
+    },
+    {
+      "id": "1.4.6",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-12-19T22:00:00+00:00"
+    },
+    {
+      "id": "1.4.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-12-13T22:00:00+00:00"
+    },
+    {
+      "id": "1.4.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-11-24T22:00:00+00:00"
+    },
+    {
+      "id": "1.3.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-08-15T22:00:00+00:00"
+    },
+    {
+      "id": "1.3.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-07-31T22:00:00+00:00"
+    },
+    {
+      "id": "1.2.5",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-03-29T22:00:00+00:00"
+    },
+    {
+      "id": "1.2.4",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-03-21T22:00:00+00:00"
+    },
+    {
+      "id": "1.2.3",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-03-01T22:00:00+00:00"
+    },
+    {
+      "id": "1.2.2",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-02-29T22:00:01+00:00"
+    },
+    {
+      "id": "1.2.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-02-29T22:00:00+00:00"
+    },
+    {
+      "id": "1.1",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2012-01-11T22:00:00+00:00"
+    },
+    {
+      "id": "1.0",
+      "java_major": 8,
+      "java_declared_by_mojang": 8,
+      "server_core": "vanilla",
+      "download_source": "mojang-version-manifest",
+      "crossplay_mode": "not-guaranteed",
+      "support_tier": "ancient-vanilla-experimental",
+      "release_time": "2011-11-17T22:00:00+00:00"
+    }
+  ]
+}

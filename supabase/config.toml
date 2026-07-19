@@ -1,0 +1,28 @@
+project_id = "YOUR_SUPABASE_PROJECT_REF"
+
+[functions.link-huggingface]
+verify_jwt = true
+
+[functions.unlink-huggingface]
+verify_jwt = true
+
+[functions.agent-command]
+verify_jwt = true
+
+[functions.provision-server]
+verify_jwt = true
+
+[functions.provision-status]
+verify_jwt = true
+
+[functions.sync-servers]
+verify_jwt = true
+
+[functions.upgrade-agent]
+verify_jwt = true
+
+[functions.delete-server]
+verify_jwt = true
+
+[functions.delete-account]
+verify_jwt = true
